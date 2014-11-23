@@ -1,0 +1,11 @@
+{
+	"Hit": {
+		"Basic": {
+			"stat": "movementSpeed",
+			"value": 0.9,
+			"duration": 10,
+			"multiply": true,
+			"return": true
+		}
+	}
+}
