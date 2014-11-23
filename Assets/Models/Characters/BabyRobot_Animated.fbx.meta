@@ -1,14 +1,36 @@
 fileFormatVersion: 2
-guid: 1a35cd1278a07be4f97957885ca215bf
+guid: c1e87202682fce147a1f9b3e038a8daa
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pCylinder1
+    100000: babyrobo
+    100002: //RootNode
+    100004: HEAD
+    100006: L_ARM
+    100008: L_ARM2
+    100010: L_HAND
+    100012: NECK_1
+    100014: NECK_2
+    100016: R_ARM
+    100018: R_ARM2
+    100020: R_HAND
+    100022: ROOT
+    400000: babyrobo
+    400002: //RootNode
+    400004: HEAD
+    400006: L_ARM
+    400008: L_ARM2
+    400010: L_HAND
+    400012: NECK_1
+    400014: NECK_2
+    400016: R_ARM
+    400018: R_ARM2
+    400020: R_HAND
+    400022: ROOT
+    4300000: babyrobo
+    7400000: Take 001
     9500000: //RootNode
+    13700000: babyrobo
   materials:
     importMaterials: 1
     materialName: 0
@@ -28,7 +50,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: .100000001
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
