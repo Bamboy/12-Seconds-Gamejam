@@ -6,38 +6,51 @@ public class enemyScript : MonoBehaviour {
 	private float plantProjCount = 0;
 	private float dragonProjCount = 0;
 
-	void OnTriggerEnter(Collision col){
+	void OnCollisionEnter(Collision col)
+	{
+		Debug.Log("Collision");
 		if(col.gameObject.tag == "Player"){
-			if(this.gameObject.tag == "Starfish"){
+			if(this.tag == "Starfish"){
 				BaseTimer.instance.current -= 1;
+				Destroy( this.gameObject );
 			}
-			if(this.gameObject.tag == "Crab"){
+			else if(this.tag == "Crab"){
 				BaseTimer.instance.current -= 2;
+				Destroy( this.gameObject );
 			}
-			if(this.gameObject.tag == "Plant"){
+			else if(this.tag == "Plant"){
 				BaseTimer.instance.current -= 4;
+				Destroy( this.gameObject );
 			}
-			if(this.gameObject.tag == "Dragon"){
+			else if(this.tag == "Dragon"){
 				BaseTimer.instance.current -= 6;
+				Destroy( this.gameObject );
 			}
 		}
-		if(col.gameObject.tag == "Projectile"){
-			if(this.gameObject.tag == "Starfish"){
+		else if(col.gameObject.tag == "Projectile"){
+			if(this.tag == "Starfish"){
 				BaseTimer.instance.current += 2;
+				Destroy( col.gameObject );
+				Destroy( this.gameObject );
 			}
-			if(this.gameObject.tag == "Crab"){
+			else if(this.tag == "Crab"){
 				crabProjCount++;
 				if(crabProjCount == 2){
 					BaseTimer.instance.current += 3;
+					Destroy( col.gameObject );
+					Destroy( this.gameObject );
 				}
 			}
-			if(this.gameObject.tag == "Plant"){
+			else if(this.tag == "Plant"){
 				plantProjCount++;
 				if(plantProjCount == 3){
 					BaseTimer.instance.current += 5;
+					Destroy( col.gameObject );
+					Destroy( this.gameObject );
 				}
 			}
-			if(this.gameObject.tag == "Dragon"){
+			else if(this.tag == "Dragon"){
+
 			}
 		}
 	}
