@@ -21,9 +21,10 @@ public abstract class BaseTimer : MonoBehaviour
 	{
 		current = _time - Time.time - start + timeModifier;
 
-		if (current < 0)
+		if (current < 0){
 			OnEnd(true);
-		else
+			Application.LoadLevel(Application.loadedLevel);
+		} else
 			OnEnd(false);
 	}
 

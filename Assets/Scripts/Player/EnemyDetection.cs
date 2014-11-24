@@ -21,5 +21,11 @@ public class EnemyDetection : MonoBehaviour {
 				Destroy(go);
 			}
 		}
+		foreach(GameObject go in GameObject.FindGameObjectsWithTag("Rock")){
+			if(Vector3.Distance(transform.position, go.transform.position) < 2.0f){
+				BaseTimer.instance.TimeModifier -= 10;
+				Destroy(go);
+			}
+		}
 	}
 }

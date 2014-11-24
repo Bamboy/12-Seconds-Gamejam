@@ -46,7 +46,16 @@ public class Projectile : MonoBehaviour
 					Destroy( col.gameObject );
 					Destroy( this.gameObject );
 			}
+			else if(col.gameObject.tag == "Rock"){
+				plantProjCount++;
+				if(plantProjCount == 3){
+					BaseTimer.instance.TimeModifier += 5;
+					plantProjCount = 0;
+					Destroy( col.gameObject );
+					Destroy( this.gameObject );
+				}
 		}
 	}
 
+}
 }
