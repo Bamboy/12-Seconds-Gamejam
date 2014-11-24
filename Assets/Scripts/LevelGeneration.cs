@@ -16,17 +16,17 @@ public class LevelGeneration : MonoBehaviour {
 		counters[3] = Random.Range(3, 12);
 	}
 	private void Update(){
-		InstantiateCounter(0, 0, 4, 13);
-		InstantiateCounter(1, 0, 5, 10);
-		InstantiateCounter(2, 0, 7, 9);
-		InstantiateCounter(3, 0, 3, 12);
+		InstantiateCounter(0, Random.Range(0,prefabs.Length), 4, 13);
+		InstantiateCounter(1, Random.Range(0,prefabs.Length), 5, 10);
+		InstantiateCounter(2, Random.Range(0,prefabs.Length), 7, 9);
+		InstantiateCounter(3, Random.Range(0,prefabs.Length), 3, 12);
 	}
 	private void InstantiateCounter(int number, int prefabNumber, int min, int max){
 		counters[number] -= Time.deltaTime;
 		if(counters[number] <= 0)
 		{
 			Vector3 pos = new Vector3(PlyMovement.trans.position.x + spawnOffset,0,number * PlyMovement.laneWidth);
-			Instantiate(prefabs[prefabNumber], pos, Quaternion.identity);
+			Instantiate(prefabs[prefabNumber], pos, prefabs[prefabNumber].transform.rotation);
 			//Instantiate(prefabs[prefabNumber], spawners[number].transform.position, Quaternion.identity);
 			counters[number] = Random.Range(min, max);
 		}

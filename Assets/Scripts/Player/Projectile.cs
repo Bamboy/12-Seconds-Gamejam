@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
 		rigidbody.AddForce( direction * speed, ForceMode.Impulse );
 	}
 
+
 	//// Update is called once per frame
 	//void Update () 
 	//{
