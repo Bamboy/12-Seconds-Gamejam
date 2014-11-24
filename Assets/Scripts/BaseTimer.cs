@@ -22,13 +22,17 @@ public abstract class BaseTimer : MonoBehaviour
 		current = _time - Time.time - start + timeModifier;
 
 		if (current < 0)
-			OnEnd();
+			OnEnd(true);
+		else
+			OnEnd(false);
 	}
 
 	/// <summary>
 	/// Called when the Timer ends.
 	/// </summary>
-	protected abstract void OnEnd();
+	protected bool OnEnd(bool set){
+		return set;
+	}
 
 	/// <summary>
 	/// Gets or sets the time modifier.
