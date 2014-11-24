@@ -5,7 +5,7 @@ public class Shooting : MonoBehaviour
 {
 	public GameObject projectile;
 	private bool countdown;
-	private float timer = 0.75f;
+	private float timer = 0.5f;
 
 
 	// Use this for initialization
@@ -25,7 +25,7 @@ public class Shooting : MonoBehaviour
 		if( Input.GetMouseButtonDown(0) && !countdown)
 		{
 			countdown = true;
-			timer = 0.75f;
+			timer = 0.5f;
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit))
