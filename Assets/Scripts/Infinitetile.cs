@@ -33,7 +33,8 @@ public class Infinitetile : MonoBehaviour {
 			GameObject obj = (GameObject)Instantiate(prefab, position, Quaternion.identity);
 			obj.renderer.material.mainTexture = tex[area];
 
-			timer = 0.75f;
+			timer = 3f;
 		}
+		Debug.Log (area + " " + subArea);
 	}
 }
