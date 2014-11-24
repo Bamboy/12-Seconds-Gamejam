@@ -8,8 +8,8 @@ public class Infinitetile : MonoBehaviour {
 	private float timer = 0.75f;
 	public Texture[] tex;
 	public int tileAreaTransitionCount;
-	public static int area = 0;
 
+	public static int area = 0;
 	public static int subArea;
 	// Use this for initialization
 	void Start () {

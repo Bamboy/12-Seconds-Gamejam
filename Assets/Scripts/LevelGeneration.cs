@@ -7,6 +7,8 @@ public class LevelGeneration : MonoBehaviour {
 	private float[] counters;
 	public float spawnOffset = -30.0f;
 
+	public int[,] weights;
+
 	private void Start(){
 		//spawners = GameObject.FindGameObjectsWithTag("ObjectLane");
 		counters = new float[ PlyMovement.laneCount ];
@@ -14,6 +16,15 @@ public class LevelGeneration : MonoBehaviour {
 		counters[1] = Random.Range(5, 10);
 		counters[2] = Random.Range(7, 12);
 		counters[3] = Random.Range(3, 12);
+
+		//---Weights---
+		//Beach
+		//weights[0,0] = 
+		//Desert
+
+		//Forest
+
+		//Mountain
 	}
 	private void Update(){
 		InstantiateCounter(0, Random.Range(0,prefabs.Length), 4, 13);
@@ -34,4 +45,12 @@ public class LevelGeneration : MonoBehaviour {
 	private IEnumerator wait(int time){
 		yield return new WaitForSeconds(time);
 	}
+
+/*	private int[] GetWeights()
+	{
+		switch( Infinitetile.area )
+		{
+			
+		}
+	}*/
 }
