@@ -37,6 +37,29 @@ public class ExtRandom<T>
 
 	//This method returns a random element chosen from an array of elements based on the respective weights of the elements.
 	//Trying to keep a total of 100 will help with reliability.
+	public static T WeightedChoice(T[] array, int[,] nWeights, int weightCategory)
+	{
+		int nTotalWeight = 0;
+		for(int i = 0; i < array.Length; i++)
+		{
+			nTotalWeight += nWeights[weightCategory, i];
+		}
+		int nChoiceIndex = Random.Range(0, nTotalWeight);
+		for(int i = 0; i < array.Length; i++)
+		{
+			if(nChoiceIndex < nWeights[weightCategory, i])
+			{
+				nChoiceIndex = i;
+				break;
+			}
+			nChoiceIndex -= nWeights[weightCategory, i];
+		}
+		
+		return array[nChoiceIndex];
+	}
+
+	//This method returns a random element chosen from an array of elements based on the respective weights of the elements.
+	//Trying to keep a total of 100 will help with reliability.
     public static T WeightedChoice(T[] array, int[] nWeights)
     {
         int nTotalWeight = 0;
@@ -57,6 +80,7 @@ public class ExtRandom<T>
  
         return array[nChoiceIndex];
     }
+
 	//See above
     public static T WeightedChoice(List<T> list, int[] nWeights)
     {
