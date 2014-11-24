@@ -4,19 +4,20 @@
 public abstract class BaseTimer : MonoBehaviour
 {
 	private float start;
-	private float time;
+	private float _time;
 	private float timeModifier;
+	protected float current;
 
 	public void Init(float time)
 	{
 		start = Time.time;
-		this.time = start + time;
+		this._time = start + time;
 		timeModifier = 0;
 	}
 
 	private void Update()
 	{
-		float current = time - Time.time - start + timeModifier;
+		current = _time - Time.time - start + timeModifier;
 
 		if (current < 0)
 			OnEnd();

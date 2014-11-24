@@ -29,6 +29,8 @@ ModelImporter:
     400022: ROOT
     4300000: babyrobo
     7400000: Take 001
+    7400002: Walking
+    7400004: Shooting
     9500000: //RootNode
     13700000: babyrobo
   materials:
@@ -46,7 +48,157 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 47
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: ROOT
+        weight: 1
+      - path: ROOT/L_ARM
+        weight: 1
+      - path: ROOT/L_ARM/L_ARM2
+        weight: 1
+      - path: ROOT/L_ARM/L_ARM2/L_HAND
+        weight: 1
+      - path: ROOT/NECK_1
+        weight: 1
+      - path: ROOT/NECK_1/NECK_2
+        weight: 1
+      - path: ROOT/NECK_1/NECK_2/HEAD
+        weight: 1
+      - path: ROOT/R_ARM
+        weight: 1
+      - path: ROOT/R_ARM/R_ARM2
+        weight: 1
+      - path: ROOT/R_ARM/R_ARM2/R_HAND
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: ROOT
+        weight: 1
+      - path: ROOT/L_ARM
+        weight: 1
+      - path: ROOT/L_ARM/L_ARM2
+        weight: 1
+      - path: ROOT/L_ARM/L_ARM2/L_HAND
+        weight: 1
+      - path: ROOT/NECK_1
+        weight: 1
+      - path: ROOT/NECK_1/NECK_2
+        weight: 1
+      - path: ROOT/NECK_1/NECK_2/HEAD
+        weight: 1
+      - path: ROOT/R_ARM
+        weight: 1
+      - path: ROOT/R_ARM/R_ARM2
+        weight: 1
+      - path: ROOT/R_ARM/R_ARM2/R_HAND
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Shooting
+      takeName: Take 001
+      firstFrame: 26
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: ROOT
+        weight: 1
+      - path: ROOT/L_ARM
+        weight: 1
+      - path: ROOT/L_ARM/L_ARM2
+        weight: 1
+      - path: ROOT/L_ARM/L_ARM2/L_HAND
+        weight: 1
+      - path: ROOT/NECK_1
+        weight: 1
+      - path: ROOT/NECK_1/NECK_2
+        weight: 1
+      - path: ROOT/NECK_1/NECK_2/HEAD
+        weight: 1
+      - path: ROOT/R_ARM
+        weight: 1
+      - path: ROOT/R_ARM/R_ARM2
+        weight: 1
+      - path: ROOT/R_ARM/R_ARM2/R_HAND
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
