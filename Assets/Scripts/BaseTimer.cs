@@ -3,13 +3,15 @@
 //By Cristian "vozochris" Vozoca
 public abstract class BaseTimer : MonoBehaviour
 {
+	public static BaseTimer instance;
 	private float start;
 	private float _time;
 	private float timeModifier;
-	protected float current;
+	public float current;
 
 	public void Init(float time)
 	{
+		instance = this;
 		start = Time.time;
 		this._time = start + time;
 		timeModifier = 0;
