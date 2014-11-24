@@ -2,13 +2,14 @@
 using System.Collections;
 
 public class LevelGeneration : MonoBehaviour {
-	private GameObject[] spawners;
+	//private GameObject[] spawners;
 	public GameObject[] prefabs;
 	private float[] counters;
+	public float spawnOffset = -30.0f;
 
 	private void Start(){
-		spawners = GameObject.FindGameObjectsWithTag("ObjectLane");
-		counters = new float[spawners.Length];
+		//spawners = GameObject.FindGameObjectsWithTag("ObjectLane");
+		counters = new float[ PlyMovement.laneCount ];
 		counters[0] = Random.Range(4, 13);
 		counters[1] = Random.Range(5, 10);
 		counters[2] = Random.Range(7, 12);
@@ -22,8 +23,11 @@ public class LevelGeneration : MonoBehaviour {
 	}
 	private void InstantiateCounter(int number, int prefabNumber, int min, int max){
 		counters[number] -= Time.deltaTime;
-		if(counters[number] <= 0){
-			Instantiate(prefabs[prefabNumber], spawners[number].transform.position, Quaternion.identity);
+		if(counters[number] <= 0)
+		{
+			Vector3 pos = new Vector3(PlyMovement.trans.position.x + spawnOffset,0,number * PlyMovement.laneWidth);
+			Instantiate(prefabs[prefabNumber], pos, Quaternion.identity);
+			//Instantiate(prefabs[prefabNumber], spawners[number].transform.position, Quaternion.identity);
 			counters[number] = Random.Range(min, max);
 		}
 	}
