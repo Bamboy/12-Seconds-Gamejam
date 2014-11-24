@@ -4,6 +4,8 @@ using System.Collections;
 public class Shooting : MonoBehaviour 
 {
 	public GameObject projectile;
+	private bool countdown;
+	private float timer = 0.75f;
 
 
 	// Use this for initialization
@@ -13,10 +15,17 @@ public class Shooting : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+		if(countdown){
+			timer -= Time.deltaTime;
+		}
+		if(timer <= 0){
+			countdown = false;
+		}
 
-
-		if( Input.GetMouseButtonDown(0) )
+		if( Input.GetMouseButtonDown(0) && !countdown)
 		{
+			countdown = true;
+			timer = 0.75f;
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit))
