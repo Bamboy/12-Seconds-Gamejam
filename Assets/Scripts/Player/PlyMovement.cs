@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
+[ExecuteInEditMode]
 public class PlyMovement : MonoBehaviour {
 	public static int laneCount = 4;
 	public static float laneWidth = 2.5f;
@@ -14,6 +16,7 @@ public class PlyMovement : MonoBehaviour {
 
 	void Update()
 	{
+#if UNITY_STANDALONE
 		trans = this.transform;
 		speed = inspectorSpeed;
 		if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
@@ -39,9 +42,11 @@ public class PlyMovement : MonoBehaviour {
 
 		if( !CheckObstacles(Vector3.left, 0.075f) )
 			transform.Translate( -1 * speed * Time.deltaTime, 0, 0, Space.World );
-
+#endif
+#if UNITY_EDITOR
 		if( drawLanes )
 			DrawLanes();
+#endif
 	}
 
 	bool CheckObstacles( Vector3 dir, float dist )
@@ -49,7 +54,7 @@ public class PlyMovement : MonoBehaviour {
 		RaycastHit hit;
 		if( Physics.Raycast( transform.position, dir, out hit ) )
 		{
-			if( hit.distance <= dist + 0.5f )
+			if( hit.distance <= dist + 2.5f )
 				return true;
 			else
 				return false;
