@@ -1,27 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Infinitetile : MonoBehaviour {
-	public GameObject tile;
+public class Infinitetile : MonoBehaviour 
+{
 	public GameObject prefab;
+	public float prefabLength = 50.0f;
 	Vector3 position;
-	private float timer = 0.75f;
+	private static float timer = 0.75f;
 	public Texture[] tex;
 	public int tileAreaTransitionCount;
 
-	public static int area = 0;
-	public static int subArea;
+	public static int area = 0; //Used by other scripts to know what to spawn. (See LevelGeneration.cs)
+	public static int subArea = 0;
 	// Use this for initialization
 	void Start () {
-		position  = new Vector3(-9.86707f, -0.07385421f, 1.151482f);
+		position = new Vector3(500, -0.07385421f, 0);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		timer -= Time.deltaTime;
+	void Update () 
+	{
+		//timer -= Time.deltaTime;
 		if(timer <= 0)
 		{
-			position.x -= (float)30;
+			position.x -= prefabLength;
 
 			subArea++;
 			if( subArea == tileAreaTransitionCount )
@@ -33,8 +35,12 @@ public class Infinitetile : MonoBehaviour {
 			GameObject obj = (GameObject)Instantiate(prefab, position, Quaternion.identity);
 			obj.renderer.material.mainTexture = tex[area];
 
-			timer = 3f;
+			timer = 3.0f;
 		}
 		//Debug.Log (area + " " + subArea);
+	}
+	public static void AddTile()
+	{
+		timer = 0f;
 	}
 }

@@ -22,7 +22,7 @@ public class Shooting : MonoBehaviour
 			countdown = false;
 		}
 
-		if( Input.GetMouseButtonDown(0) && !countdown)
+		if( Input.GetMouseButtonDown(0) && !countdown )
 		{
 			countdown = true;
 			timer = 0.75f;
