@@ -2,35 +2,45 @@
 using System.Collections;
 
 public class Music : MonoBehaviour {
-	public AudioClip music;
-	public AudioClip musicc;
-	private int playCount;
-	public float timer;
+	public AudioSource[] audioSources;
+	public  float timer;
 	private float timerr;
-	private float _timer;
-	private float _timerr;
-	private bool _boolOne;
+	public float _timer;
+	public float _timerr;
+	private bool _boolOne = true;
 	private bool _boolTwo;
 
 	void Start(){
-		AudioSource.PlayClipAtPoint(music, Vector3.zero);
-		timer = music.length;
-		timerr = musicc.length;
+		audioSources[0].Play();
+		timer = audioSources[0].clip.length;
+		timerr = audioSources[1].clip.length;
 		_timer = timer;
 		_timerr = timerr;
 	}
 	void Update () {
-		while(_boolOne){
+		if(_boolOne){
 			_timer -= Time.deltaTime;
+			if(_timer <= 0){
+				if(audioSources[0].isPlaying){
+					audioSources[0].Stop();
+				}
+				audioSources[1].Play();
+				_timer = timer;
+				_boolTwo = true;
+				_boolOne = false;
+			}
 		}
-		while(_boolTwo){
+		if(_boolTwo){
 			_timerr -= Time.deltaTime;
-		}
-		if(_timer <= 0){
-			AudioSource.PlayClipAtPoint(musicc, Vector3.zero);
-		}
-		if(_timerr <= 0){
-			AudioSource.PlayClipAtPoint(music, Vector3.zero);
+			if(_timerr <= 0){
+				if(audioSources[1].isPlaying){
+					audioSources[1].Stop();
+				}
+				audioSources[0].Play();
+				_timerr = timerr;
+				_boolOne = true;
+				_boolTwo = false;
+			}
 		}
 	}
 }
