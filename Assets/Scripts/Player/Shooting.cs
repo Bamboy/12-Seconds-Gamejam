@@ -6,7 +6,11 @@ public class Shooting : MonoBehaviour
 	public GameObject projectile;
 	public float shootDelay = 0.75f;
 	private bool countdown;
+<<<<<<< HEAD
 	private float timer;
+=======
+	private float timer = 0.5f;
+>>>>>>> 76181d48364538cb178a98a20221c7cd9b821813
 
 	//public Transform target;
 	public float maxAngle = 35.0f;
@@ -35,8 +39,21 @@ public class Shooting : MonoBehaviour
 		if( Input.GetMouseButtonDown(0) && !countdown )
 		{
 			countdown = true;
+<<<<<<< HEAD
 			timer = shootDelay;
 			Shoot ();
+=======
+			timer = 0.5f;
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out hit))
+			{
+				//hit.collider.renderer.material.color = Color.red;
+			}
+			else
+				Debug.LogError ("Nothing was hit!", this);
+
+>>>>>>> 76181d48364538cb178a98a20221c7cd9b821813
 
 			/*
 			Vector2 spawnPos = VectorExtras.OffsetPosInPointDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(hit.point.x, hit.point.z), 0.6f );
