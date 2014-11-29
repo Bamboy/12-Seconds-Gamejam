@@ -46,12 +46,12 @@ public class LevelGeneration : MonoBehaviour {
 		weights[2,6] = 0;  //Dragon
 		//Mountain - dragon, waves, quicksand
 		weights[3,0] = 0; //Starfish
-		weights[3,1] = 40; //waves
+		weights[3,1] = 30; //waves
 		weights[3,2] = 0;  //crab
-		weights[3,3] = 40;  //quicksand
+		weights[3,3] = 20;  //quicksand
 		weights[3,4] = 0;  //plants
 		weights[3,5] = 0;  //logs
-		weights[3,6] = 20;  //Dragon
+		weights[3,6] = 50;  //Dragon
 	}
 	private void Update(){
 		InstantiateCounter(0, 0, 4, 13);

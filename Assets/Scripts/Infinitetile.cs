@@ -35,6 +35,6 @@ public class Infinitetile : MonoBehaviour {
 
 			timer = 3f;
 		}
-		Debug.Log (area + " " + subArea);
+		//Debug.Log (area + " " + subArea);
 	}
 }
