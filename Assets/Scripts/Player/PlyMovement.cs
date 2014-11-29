@@ -6,7 +6,8 @@ using UnityEditor;
 public class PlyMovement : MonoBehaviour {
 	public static int laneCount = 4;
 	public static float laneWidth = 2.5f;
-	public static float speed = 1.0f;
+	public static float speed;
+	public static float speedMultiplier = 1.0f;
 	public float inspectorSpeed = 7.5f;
 	private int laneNumber;
 
@@ -41,7 +42,7 @@ public class PlyMovement : MonoBehaviour {
 		transform.position = t;
 
 		if( !CheckObstacles(Vector3.left, 0.075f) )
-			transform.Translate( -1 * speed * Time.deltaTime, 0, 0, Space.World );
+			transform.Translate( -1 * speed * speedMultiplier * Time.deltaTime, 0, 0, Space.World );
 #endif
 #if UNITY_EDITOR
 		if( drawLanes )
