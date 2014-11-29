@@ -10,6 +10,5 @@ public class RandomSoundeffects : MonoBehaviour {
 		for(int i = 0; i < audioClips.Length; i++){
 			playRandomClip.Add(audioClips[i], i);
 		}
-		Debug.Log(playRandomClip.Count);
 	}
 }

@@ -54,7 +54,7 @@ public class PlyMovement : MonoBehaviour {
 		RaycastHit hit;
 		if( Physics.Raycast( transform.position, dir, out hit ) )
 		{
-			if( hit.distance <= dist + 2.5f )
+			if( hit.distance <= dist + 0.5f )
 				return true;
 			else
 				return false;
