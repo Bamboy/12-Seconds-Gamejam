@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Shooting : MonoBehaviour 
 {
-	public GameObject projectile;
+	/*public GameObject projectile;
 	public float shootDelay = 0.75f;
 	private bool countdown;
 <<<<<<< HEAD
@@ -55,12 +55,11 @@ public class Shooting : MonoBehaviour
 
 >>>>>>> 76181d48364538cb178a98a20221c7cd9b821813
 
-			/*
 			Vector2 spawnPos = VectorExtras.OffsetPosInPointDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(hit.point.x, hit.point.z), 0.6f );
 			GameObject proj = (GameObject)Instantiate( projectile, new Vector3( spawnPos.x, 1.0f, spawnPos.y ), Quaternion.identity );
 			Vector2 dir = VectorExtras.Direction( new Vector2(transform.position.x, transform.position.z), new Vector2(hit.point.x, hit.point.z) );
 			proj.GetComponent<Projectile>().direction = new Vector3( dir.x, 0.0f, dir.y );
-			proj.GetComponent<Projectile>().speed += PlyMovement.speed; */
+			proj.GetComponent<Projectile>().speed += PlyMovement.speed;
 		}
 	}
 	void Shoot()
@@ -105,5 +104,5 @@ public class Shooting : MonoBehaviour
 			Debug.LogError ("Nothing was hit!", this);
 
 		LookAtTarget( hit.point );
-	}
+	}*/
 }
