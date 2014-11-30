@@ -1,30 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Rock : MonoBehaviour 
+namespace Enemies
 {
-	public float timePenalty = 5.0f;
-	public Vector2 speedRange;
-	float speed;
+	public class Rock : RotatingEnemy 
+	{
+		public float timePenalty = 5.0f;
+		public Vector2 speedRange;
 
-	private bool hasPassed;
-	private bool hasDeducted;
-	void Start () 
-	{
-		speed = Random.Range( speedRange.x, speedRange.y );
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		transform.Translate( speed * Time.deltaTime, 0, 0, Space.World );
-		if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 2.0f && !hasDeducted)
+		private bool hasPassed;
+		private bool hasDeducted;
+		private void Start() 
 		{
-			hasPassed = true;
+			movementSpeed = Random.Range( speedRange.x, speedRange.y );
 		}
-		if(hasPassed && !hasDeducted){
-			BaseTimer.instance.TimeModifier -= timePenalty;
-			hasDeducted = true;
+		
+		// Update is called once per frame
+		void Update () 
+		{
+			transform.Translate(movementSpeed * Time.deltaTime, 0, 0, Space.World);
+			if(Vector3.Distance(transform.position, Main.player.position) < 2.0f && !hasDeducted)
+			{
+				hasPassed = true;
+			}
+			if(hasPassed && !hasDeducted){
+				BaseTimer.instance.TimeModifier -= timePenalty;
+				hasDeducted = true;
+			}
 		}
 	}
 }
