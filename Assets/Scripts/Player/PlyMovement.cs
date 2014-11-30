@@ -8,24 +8,33 @@ public class PlyMovement : MonoBehaviour {
 	public static float laneWidth = 2.5f;
 	public static float speed;
 	public static float speedMultiplier = 1.0f;
-	public float inspectorSpeed = 7.5f;
-	private int laneNumber;
-
-	public LayerMask layers;
-	public bool drawLanes = true;
 	public static Transform trans;
+	public float inspectorSpeed = 6.5f;
+
+	private int laneNumber;
+	private int lastLaneNumber;
+	private float time;
+	
+	public bool drawLanes = true;
+
+	void Start()
+	{
+		trans = this.transform;
+		time = 1.0f;
+		lastLaneNumber = 0;
+		laneNumber = 0;
+	}
 
 	void Update()
 	{
 #if UNITY_STANDALONE
-		trans = this.transform;
 		speed = inspectorSpeed;
 		if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
 		{
 			if(laneNumber < laneCount - 1)
 			{
 				if( !CheckObstacles( Vector3.forward, laneWidth ) )
-					laneNumber++;
+					SetLaneNumber( laneNumber + 1 );
 			}
 		} 
 		else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
@@ -33,12 +42,14 @@ public class PlyMovement : MonoBehaviour {
 			if(laneNumber > 0)
 			{
 				if( !CheckObstacles( Vector3.back, laneWidth ) )
-					laneNumber--;
+					SetLaneNumber( laneNumber - 1 );
 			}
 		}
+		time += ( 1.225f * speedMultiplier * Time.deltaTime );
 
 		Vector3 t = transform.position;
-		t.z = laneNumber * laneWidth;
+		//t.z = laneNumber * laneWidth;
+		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
 		transform.position = t;
 
 		if( !CheckObstacles(Vector3.left, 0.075f) )
@@ -48,6 +59,12 @@ public class PlyMovement : MonoBehaviour {
 		if( drawLanes )
 			DrawLanes();
 #endif
+	}
+	void SetLaneNumber( int newLane )
+	{
+		lastLaneNumber = laneNumber;
+		laneNumber = newLane;
+		time = 0.0f;
 	}
 
 	bool CheckObstacles( Vector3 dir, float dist )

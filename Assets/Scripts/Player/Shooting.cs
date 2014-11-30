@@ -67,9 +67,10 @@ public class Shooting : MonoBehaviour
 	}
 	void LookAtTarget(Vector3 target)
 	{
+		target.x -= maxAngle;
 		Vector3 look = target - transform.position;
 		look.y = 0;
-		
+
 		Quaternion q = Quaternion.LookRotation (look);
 		if (Quaternion.Angle (q, baseRotation) <= maxAngle)
 			targetRotation = q;
