@@ -1,28 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Quicksand : MonoBehaviour 
+namespace Enemies
 {
-	public float speedMultiplier = 0.2f;
-
-	void Awake () 
+	public class Quicksand : RotatingEnemy 
 	{
-		collider.isTrigger = true;
-		rigidbody.useGravity = false;
-	}
+		public float speedMultiplier = 0.2f;
 
-	void OnTriggerEnter( Collider c )
-	{
-		if( c.tag == "Player" )
+		void Awake () 
 		{
-			PlyMovement.speedMultiplier = speedMultiplier;
+			collider.isTrigger = true;
+			rigidbody.useGravity = false;
 		}
-	}
-	void OnTriggerExit( Collider c )
-	{
-		if( c.tag == "Player" )
+
+		void OnTriggerEnter( Collider c )
 		{
-			PlyMovement.speedMultiplier = 1.0f;
+			if( c.tag == "Player" )
+			{
+				PlyMovement.speedMultiplier = speedMultiplier;
+			}
+		}
+
+		void OnTriggerExit( Collider c )
+		{
+			if( c.tag == "Player" )
+			{
+				PlyMovement.speedMultiplier = 1.0f;
+			}
 		}
 	}
 }
