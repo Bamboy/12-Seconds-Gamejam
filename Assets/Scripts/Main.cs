@@ -14,4 +14,9 @@ public class Main : MonoBehaviour
 
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
+
+	public static void OnWin()
+	{
+		print("Won! Do something.");
+	}
 }

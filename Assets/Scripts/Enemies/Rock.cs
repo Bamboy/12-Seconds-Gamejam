@@ -2,7 +2,7 @@
 
 namespace Enemies
 {
-	public class Rock : RotatingEnemy 
+	public class Rock : BaseEnemy 
 	{
 		public float timePenalty = 5.0f;
 		public Vector2 speedRange;
@@ -13,11 +13,10 @@ namespace Enemies
 		{
 			movementSpeed = Random.Range( speedRange.x, speedRange.y );
 		}
-		
-		// Update is called once per frame
-		void Update () 
+
+		protected override void Update()
 		{
-			transform.Translate(movementSpeed * Time.deltaTime, 0, 0, Space.World);
+			base.Update();
 			if(Vector3.Distance(transform.position, Main.player.position) < 2.0f && !hasDeducted)
 			{
 				hasPassed = true;

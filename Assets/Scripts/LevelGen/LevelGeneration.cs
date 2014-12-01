@@ -17,7 +17,7 @@ public class LevelGeneration : MonoBehaviour {
 		counters[2] = Random.Range(7, 12);
 		counters[3] = Random.Range(3, 12);
 
-		weights = new int[4,7];
+		weights = new int[5,7];
 
 		//---Weights---
 		//Beach - Starfish, waves
@@ -27,7 +27,7 @@ public class LevelGeneration : MonoBehaviour {
 		weights[0,3] = 0;  //quicksand
 		weights[0,4] = 0;  //plants
 		weights[0,5] = 0;  //logs
-		weights[0,6] = 0;  //Dragon
+		weights[0,6] = 0;  //rock
 		//Desert - Crab, quicksand
 		weights[1,0] = 10; //Starfish
 		weights[1,1] = 0; //waves
@@ -35,7 +35,7 @@ public class LevelGeneration : MonoBehaviour {
 		weights[1,3] = 40;  //quicksand
 		weights[1,4] = 0;  //plants
 		weights[1,5] = 0;  //logs
-		weights[1,6] = 0;  //Dragon
+		weights[1,6] = 0;  //rock
 		//Forest - plants, logs
 		weights[2,0] = 0; //Starfish
 		weights[2,1] = 0; //waves
@@ -43,7 +43,7 @@ public class LevelGeneration : MonoBehaviour {
 		weights[2,3] = 5;  //quicksand
 		weights[2,4] = 45;  //plants
 		weights[2,5] = 45;  //logs
-		weights[2,6] = 0;  //Dragon
+		weights[2,6] = 0;  //rock
 		//Mountain - dragon, waves, quicksand
 		weights[3,0] = 0; //Starfish
 		weights[3,1] = 30; //waves
@@ -51,7 +51,15 @@ public class LevelGeneration : MonoBehaviour {
 		weights[3,3] = 20;  //quicksand
 		weights[3,4] = 0;  //plants
 		weights[3,5] = 0;  //logs
-		weights[3,6] = 50;  //Dragon
+		weights[3,6] = 0;  //rock
+		//Dragon (boss) - rocks
+		weights[4,0] = 0; //Starfish
+		weights[4,1] = 0; //waves
+		weights[4,2] = 0;  //crab
+		weights[4,3] = 0;  //quicksand
+		weights[4,4] = 0;  //plants
+		weights[4,5] = 0;  //logs
+		weights[4,6] = 100;  //rock
 	}
 	private void Update(){
 		InstantiateCounter(0, 0, 4, 13);
