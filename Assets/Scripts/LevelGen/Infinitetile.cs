@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Infinitetile : MonoBehaviour 
 {
-	public GameObject prefab;
+	public GameObject[] prefab;
 	public float prefabLength = 50.0f;
 	Vector3 position;
 	private static float timer = 0.75f;
@@ -32,8 +32,8 @@ public class Infinitetile : MonoBehaviour
 				area++;
 			}
 
-			GameObject obj = (GameObject)Instantiate(prefab, position, Quaternion.identity);
-			obj.renderer.material.mainTexture = tex[area];
+			GameObject obj = (GameObject)Instantiate(prefab[area], position, Quaternion.identity);
+			//obj.renderer.material.mainTexture = tex[area];
 
 			timer = 3.0f;
 		}
