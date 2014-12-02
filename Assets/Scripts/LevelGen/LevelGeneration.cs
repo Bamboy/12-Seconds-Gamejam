@@ -66,6 +66,7 @@ public class LevelGeneration : MonoBehaviour {
 		InstantiateCounter(1, 0, 5, 10);
 		InstantiateCounter(2, 0, 7, 9);
 		InstantiateCounter(3, 0, 3, 12);
+		InstantiateCounter(4, 0, 6, 8);
 	}
 	private void InstantiateCounter(int number, int prefabNumber, int min, int max){
 		counters[number] -= Time.deltaTime;

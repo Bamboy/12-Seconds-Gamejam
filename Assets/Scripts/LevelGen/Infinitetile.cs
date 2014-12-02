@@ -14,7 +14,7 @@ public class Infinitetile : MonoBehaviour
 	public static int subArea = 0;
 	// Use this for initialization
 	void Start () {
-		position = new Vector3(500, -0.07385421f, 0);
+		position = new Vector3(500, -0.07385421f, 5.0f);
 	}
 	
 	// Update is called once per frame

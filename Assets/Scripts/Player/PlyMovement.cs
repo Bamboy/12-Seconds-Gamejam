@@ -4,7 +4,7 @@ using UnityEditor;
 
 [ExecuteInEditMode]
 public class PlyMovement : MonoBehaviour {
-	public static int laneCount = 4;
+	public static int laneCount = 5;
 	public static float laneWidth = 2.5f;
 	public static float speed;
 	public static float speedMultiplier = 1.0f;
