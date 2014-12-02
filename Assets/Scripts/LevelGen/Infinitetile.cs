@@ -7,7 +7,6 @@ public class Infinitetile : MonoBehaviour
 	public float prefabLength = 50.0f;
 	Vector3 position;
 	private static float timer = 0.75f;
-	public Texture[] tex;
 	public int tileAreaTransitionCount;
 
 	public static int area = 0; //Used by other scripts to know what to spawn. (See LevelGeneration.cs)
@@ -33,11 +32,9 @@ public class Infinitetile : MonoBehaviour
 			}
 
 			GameObject obj = (GameObject)Instantiate(prefab[area], position, Quaternion.identity);
-			//obj.renderer.material.mainTexture = tex[area];
 
 			timer = 3.0f;
 		}
-		//Debug.Log (area + " " + subArea);
 	}
 	public static void AddTile()
 	{
