@@ -55,7 +55,7 @@ public class Shooting : MonoBehaviour
 			//hit.collider.renderer.material.color = Color.red;
 		}
 		else
-			Debug.LogError ("Nothing was hit!", this);
+			Debug.Log ("Nothing was hit!", this);
 
 		LookAtTarget( hit.point );
 
