@@ -6,27 +6,30 @@ public class LevelGeneration : MonoBehaviour {
 	public GameObject[] prefabs;
 	private float[] counters;
 	public float spawnOffset = -30.0f;
+	public int min = 3;
+	public int max = 7;
 
 	public int[,] weights;
 
 	private void Start(){
 		//spawners = GameObject.FindGameObjectsWithTag("ObjectLane");
 		counters = new float[ PlyMovement.laneCount ];
-		counters[0] = Random.Range(4, 13);
-		counters[1] = Random.Range(5, 10);
-		counters[2] = Random.Range(7, 12);
-		counters[3] = Random.Range(3, 12);
+		counters[0] = Random.Range(min, max);
+		counters[1] = Random.Range(min, max);
+		counters[2] = Random.Range(min, max);
+		counters[3] = Random.Range(min, max);
+		counters[4] = Random.Range(min, max);
 
 		weights = new int[5,7];
 
 		//---Weights---
 		//Beach - Starfish, waves
-		weights[0,0] = 60; //Starfish
-		weights[0,1] = 40; //waves
+		weights[0,0] = 40; //Starfish
+		weights[0,1] = 58; //waves
 		weights[0,2] = 0;  //crab
 		weights[0,3] = 0;  //quicksand
 		weights[0,4] = 0;  //plants
-		weights[0,5] = 0;  //logs
+		weights[0,5] = 2;  //logs
 		weights[0,6] = 0;  //rock
 		//Desert - Crab, quicksand
 		weights[1,0] = 10; //Starfish
@@ -46,27 +49,19 @@ public class LevelGeneration : MonoBehaviour {
 		weights[2,6] = 0;  //rock
 		//Mountain - dragon, waves, quicksand
 		weights[3,0] = 0; //Starfish
-		weights[3,1] = 30; //waves
+		weights[3,1] = 10; //waves
 		weights[3,2] = 0;  //crab
 		weights[3,3] = 20;  //quicksand
 		weights[3,4] = 0;  //plants
 		weights[3,5] = 0;  //logs
-		weights[3,6] = 0;  //rock
-		//Dragon (boss) - rocks
-		weights[4,0] = 0; //Starfish
-		weights[4,1] = 0; //waves
-		weights[4,2] = 0;  //crab
-		weights[4,3] = 0;  //quicksand
-		weights[4,4] = 0;  //plants
-		weights[4,5] = 0;  //logs
-		weights[4,6] = 100;  //rock
+		weights[3,6] = 70;  //rock
 	}
 	private void Update(){
-		InstantiateCounter(0, 0, 4, 13);
-		InstantiateCounter(1, 0, 5, 10);
-		InstantiateCounter(2, 0, 7, 9);
-		InstantiateCounter(3, 0, 3, 12);
-		InstantiateCounter(4, 0, 6, 8);
+		InstantiateCounter(0, 0, min, max);
+		InstantiateCounter(1, 0, min, max);
+		InstantiateCounter(2, 0, min, max);
+		InstantiateCounter(3, 0, min, max);
+		InstantiateCounter(4, 0, min, max);
 	}
 	private void InstantiateCounter(int number, int prefabNumber, int min, int max){
 		counters[number] -= Time.deltaTime;
