@@ -14,8 +14,9 @@ public class MusicPlayer : MonoBehaviour
 	{
 		Add("1", "Music/");
 		Add("2", "Music/");
+		Add("3", "Music/");
 
-		PlayLooped("1", "1", "2", "2");
+		PlayLooped("1", "2", "3");
 	}
 
 	private void Update()

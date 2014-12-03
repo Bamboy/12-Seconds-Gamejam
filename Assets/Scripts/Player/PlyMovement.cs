@@ -8,6 +8,7 @@ public class PlyMovement : MonoBehaviour {
 	public static float laneWidth = 2.5f;
 	public static float speed;
 	public static float speedMultiplier = 1.0f;
+	public static float currSpeed;
 	public static Transform trans;
 	public float inspectorSpeed = 6.5f;
 
@@ -53,7 +54,8 @@ public class PlyMovement : MonoBehaviour {
 		transform.position = t;
 
 		if( !CheckObstacles(Vector3.left, 0.075f) )
-			transform.Translate( -1 * speed * speedMultiplier * Time.deltaTime, 0, 0, Space.World );
+			currSpeed = speed * speedMultiplier * Time.deltaTime;
+			transform.Translate( -1 * currSpeed, 0, 0, Space.World );
 #endif
 #if UNITY_EDITOR
 		if( drawLanes )

@@ -23,7 +23,7 @@ public abstract class BaseTimer : MonoBehaviour
 
 		if (current < 0){
 			OnEnd(true);
-			Application.LoadLevel(Application.loadedLevel);
+			//Application.LoadLevel(Application.loadedLevel);
 		} else
 			OnEnd(false);
 	}
