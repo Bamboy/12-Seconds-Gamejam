@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
 
 [ExecuteInEditMode]
 public class PlyMovement : MonoBehaviour {
@@ -17,6 +16,10 @@ public class PlyMovement : MonoBehaviour {
 	private float time;
 	
 	public bool drawLanes = true;
+
+	//Android
+	private Vector2 firstPosition;
+	private Vector2 lastPosition;
 
 	void Start()
 	{
@@ -60,6 +63,44 @@ public class PlyMovement : MonoBehaviour {
 #if UNITY_EDITOR
 		if( drawLanes )
 			DrawLanes();
+#endif
+#if UNITY_ANDROID
+		foreach(Touch touch in Input.touches){
+			if(touch.phase == TouchPhase.Began){
+				firstPosition = touch.position;
+				lastPosition = touch.position;
+			}
+			if(touch.phase == TouchPhase.Moved){
+				lastPosition = touch.position;
+			}
+			if(touch.phase == TouchPhase.Ended){
+				if(firstPosition.x - lastPosition.x > 80){//swipe left
+					if(laneNumber > 0)
+					{
+						if( !CheckObstacles( Vector3.back, laneWidth ) )
+							SetLaneNumber( laneNumber - 1 );
+					}
+				}
+				if(firstPosition.x - lastPosition.x < -80){//swipe right
+					if(laneNumber < laneCount - 1)
+					{
+						if( !CheckObstacles( Vector3.forward, laneWidth ) )
+							SetLaneNumber( laneNumber + 1 );
+					}
+				}
+			}
+		}
+		speed = inspectorSpeed;
+		time += ( 1.225f * speedMultiplier * Time.deltaTime );
+		
+		Vector3 t = transform.position;
+		//t.z = laneNumber * laneWidth;
+		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
+		transform.position = t;
+		
+		if( !CheckObstacles(Vector3.left, 0.075f) )
+			currSpeed = speed * speedMultiplier * Time.deltaTime;
+		transform.Translate( -1 * currSpeed, 0, 0, Space.World );
 #endif
 	}
 	void SetLaneNumber( int newLane )
