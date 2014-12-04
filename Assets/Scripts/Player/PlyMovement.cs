@@ -11,7 +11,7 @@ public class PlyMovement : MonoBehaviour {
 	public static Transform trans;
 	public float inspectorSpeed = 6.5f;
 
-	private int laneNumber;
+	public static int laneNumber;
 	private int lastLaneNumber;
 	private float time;
 	
@@ -52,7 +52,6 @@ public class PlyMovement : MonoBehaviour {
 		time += ( 1.225f * speedMultiplier * Time.deltaTime );
 
 		Vector3 t = transform.position;
-		//t.z = laneNumber * laneWidth;
 		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
 		transform.position = t;
 
@@ -94,7 +93,6 @@ public class PlyMovement : MonoBehaviour {
 		time += ( 1.225f * speedMultiplier * Time.deltaTime );
 		
 		Vector3 t = transform.position;
-		//t.z = laneNumber * laneWidth;
 		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
 		transform.position = t;
 		
