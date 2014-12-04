@@ -10,14 +10,16 @@ public class CharacterAnimation : MonoBehaviour {
 		anim = GetComponent<Animator>();
 	}
 	void Update () {
-		speed = (PlyMovement.speed * PlyMovement.speedMultiplier * Time.deltaTime) * 10;
 		anim.SetFloat("Speed", (PlyMovement.speed * PlyMovement.speedMultiplier * Time.deltaTime) * 10);
+
 		if(Input.GetButtonDown("Fire1")){
 			anim.SetBool("Fire", true);
 			Invoke("SetAnimBoolFalse", 0.833f);
 		}
+
 		if(BaseTimer.instance.current < 0)
 			anim.SetBool("IsDead", true);
+
 		if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
 			anim.SetFloat("Direction", 1.0f);
 		} else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){

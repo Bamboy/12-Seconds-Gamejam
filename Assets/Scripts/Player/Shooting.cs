@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
 		if(timer <= 0){
 			countdown = false;
 		}
-
+#if UNITY_STANDALONE
 		if( Input.GetMouseButtonDown(0) && !countdown )
 		{
 			countdown = true;
@@ -45,6 +45,23 @@ public class Shooting : MonoBehaviour
 			proj.GetComponent<Projectile>().direction = new Vector3( dir.x, 0.0f, dir.y );
 			proj.GetComponent<Projectile>().speed += PlyMovement.speed; */
 		}
+#endif
+#if UNITY_ANDROID
+		foreach(Touch touch in Input.touches){
+			if(touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled && !countdown){
+				countdown = true;
+				timer = shootDelay;
+				Shoot ();
+				
+				/*
+				Vector2 spawnPos = VectorExtras.OffsetPosInPointDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(hit.point.x, hit.point.z), 0.6f );
+				GameObject proj = (GameObject)Instantiate( projectile, new Vector3( spawnPos.x, 1.0f, spawnPos.y ), Quaternion.identity );
+				Vector2 dir = VectorExtras.Direction( new Vector2(transform.position.x, transform.position.z), new Vector2(hit.point.x, hit.point.z) );
+				proj.GetComponent<Projectile>().direction = new Vector3( dir.x, 0.0f, dir.y );
+				proj.GetComponent<Projectile>().speed += PlyMovement.speed; */
+			}
+		}
+#endif
 	}
 	void Shoot()
 	{
