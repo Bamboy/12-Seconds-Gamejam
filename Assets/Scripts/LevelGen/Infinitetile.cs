@@ -25,7 +25,7 @@ public class Infinitetile : MonoBehaviour
 			position.x -= prefabLength;
 
 			subArea++;
-			if( subArea == tileAreaTransitionCount )
+			if( subArea == tileAreaTransitionCount && area != 3 ) //Dont try to go to the next area, just keep looping area 3 forever.
 			{
 				subArea = 0;
 				area++;

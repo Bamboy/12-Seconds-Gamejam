@@ -10,6 +10,7 @@ public class LevelGeneration : MonoBehaviour {
 	public int max = 7;
 
 	public int[,] weights;
+	public static bool doRocks = false;
 
 	private void Start(){
 		//spawners = GameObject.FindGameObjectsWithTag("ObjectLane");
@@ -49,35 +50,39 @@ public class LevelGeneration : MonoBehaviour {
 		weights[2,6] = 0;  //rock
 		//Mountain - dragon, waves, quicksand
 		weights[3,0] = 0; //Starfish
-		weights[3,1] = 10; //waves
+		weights[3,1] = 5; //waves
 		weights[3,2] = 0;  //crab
-		weights[3,3] = 20;  //quicksand
+		weights[3,3] = 0;  //quicksand
 		weights[3,4] = 0;  //plants
 		weights[3,5] = 0;  //logs
-		weights[3,6] = 70;  //rock
+		weights[3,6] = 95;  //rock
 	}
 	private void Update(){
-		InstantiateCounter(0, 0, min, max);
-		InstantiateCounter(1, 0, min, max);
-		InstantiateCounter(2, 0, min, max);
-		InstantiateCounter(3, 0, min, max);
-		InstantiateCounter(4, 0, min, max);
+		InstantiateCounter(0);
+		InstantiateCounter(1);
+		InstantiateCounter(2);
+		InstantiateCounter(3);
+		InstantiateCounter(4);
 	}
-	private void InstantiateCounter(int number, int prefabNumber, int min, int max){
+	private void InstantiateCounter(int number){
 		counters[number] -= Time.deltaTime;
 		if(counters[number] <= 0)
 		{
-			GameObject prefab = ExtRandom<GameObject>.WeightedChoice( prefabs, weights, Infinitetile.area );
-
-			Vector3 pos = new Vector3(PlyMovement.trans.position.x + spawnOffset,0,number * PlyMovement.laneWidth);
-			Instantiate(prefab, pos, prefab.transform.rotation);
-			//Instantiate(prefabs[prefabNumber], spawners[number].transform.position, Quaternion.identity);
+			if( Infinitetile.area != 3 || (Infinitetile.area == 3 && doRocks == true) )
+			{
+				SpawnAsset( number );
+			}
 			counters[number] = Random.Range(min, max);
 		}
 	}
-	private IEnumerator wait(int time){
-		yield return new WaitForSeconds(time);
+	void SpawnAsset( int number )
+	{
+		GameObject prefab = ExtRandom<GameObject>.WeightedChoice( prefabs, weights, Infinitetile.area );
+		
+		Vector3 pos = new Vector3(PlyMovement.trans.position.x + spawnOffset,0,number * PlyMovement.laneWidth);
+		Instantiate(prefab, pos, prefab.transform.rotation);
 	}
+
 
 /*	private int[] GetWeights()
 	{
