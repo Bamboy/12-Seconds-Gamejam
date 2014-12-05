@@ -2,14 +2,28 @@
 using System.Collections;
 
 public class EnemyDestroy : MonoBehaviour {
+	public int counter;
+	public static EnemyDestroy instance;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start(){
+		instance = this;
 	}
-	
-	// Update is called once per frame
 	void Update () {
-	
+		if(counter == 3 && this.tag == "Crab"){
+			Destroy(gameObject);
+			BaseTimer.instance.TimeModifier += 2;
+		}
+		if(counter == 2 && this.tag == "Plant"){
+			Destroy(gameObject);
+			BaseTimer.instance.TimeModifier += 2;
+		}
+		if(counter == 4 && this.tag == "Rock"){
+			Destroy(gameObject);
+			BaseTimer.instance.TimeModifier += 2;
+		}
+		if(counter == 4 && this.tag == "Starfish"){
+			Destroy(gameObject);
+			BaseTimer.instance.TimeModifier += 2;
+		}
 	}
 }

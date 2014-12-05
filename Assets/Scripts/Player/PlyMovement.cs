@@ -23,6 +23,7 @@ public class PlyMovement : CharacterInput {
 		time = 1.0f;
 		lastLaneNumber = 0;
 		laneNumber = 0;
+		speedMultiplier = 1.0f;
 	}
 
 	void Update()

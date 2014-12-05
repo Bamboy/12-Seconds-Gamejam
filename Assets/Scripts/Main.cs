@@ -15,8 +15,12 @@ public class Main : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
-	public static void OnWin()
+	public static bool OnWin()
 	{
-		print("Won! Do something.");
+		if(Enemies.Dragon.dragon.health <= 0){
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

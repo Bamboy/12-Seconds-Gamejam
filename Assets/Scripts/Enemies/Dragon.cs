@@ -148,7 +148,6 @@ namespace Enemies
 				if (health == 0)
 				{
 					Destroy(gameObject);
-					Main.OnWin();
 				}
 			}
 		}
