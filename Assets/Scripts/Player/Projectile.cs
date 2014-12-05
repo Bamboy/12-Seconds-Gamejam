@@ -74,17 +74,17 @@ public class Projectile : MonoBehaviour
 			case "Rock":
 				rockProjCount++;
 				if(rockProjCount == 4){
-					BaseTimer.instance.TimeModifier += 1;
+					BaseTimer.instance.TimeModifier += 12;
 					rockProjCount = 0;
 					CreateSplatter( col );
-					CreateText( col, "+1 Sec", textColor );
+					CreateText( col, "+12 Sec", textColor );
 					Destroy( col.gameObject );
 				}
 				break;
 				
 			case "Dragon":
-				BaseTimer.instance.TimeModifier += 12;
-				CreateText( col, "+12 Sec", textColor );
+				BaseTimer.instance.TimeModifier += 1;
+				CreateText( col, "+1 Sec", textColor );
 				col.GetComponent<Dragon>().Hit();
 				break;
 		}

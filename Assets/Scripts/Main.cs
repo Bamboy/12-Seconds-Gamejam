@@ -7,6 +7,8 @@ public class Main : MonoBehaviour
 
 	public static MusicPlayer audioPlayer;
 
+	public static bool playerAlive = true;
+
 	private void Awake()
 	{
 		AudioHelper.MusicVolume = 0.1f;

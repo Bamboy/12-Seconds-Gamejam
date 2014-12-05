@@ -39,9 +39,6 @@ namespace Enemies
 
 		protected override void Update()
 		{
-
-
-
 			if( dragonActive == true )
 			{
 				if( time > 1.3f || introDone ) //Time is not used until the intro has been completed, so we might as well use it for the intro as well.

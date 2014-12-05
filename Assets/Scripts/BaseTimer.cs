@@ -21,11 +21,17 @@ public abstract class BaseTimer : MonoBehaviour
 	{
 		current = _time - Time.time - start + timeModifier;
 
-		if (current < 0){
+		if (current < 0)
+		{
+			//We died.
+			Main.playerAlive = false;
 			OnEnd(true);
-			//Application.LoadLevel(Application.loadedLevel);
-		} else
+		} 
+		else
+		{
+			Main.playerAlive = true;
 			OnEnd(false);
+		}
 	}
 
 	/// <summary>
@@ -42,6 +48,44 @@ public abstract class BaseTimer : MonoBehaviour
 	public float TimeModifier
 	{
 		get { return timeModifier; }
-		set { timeModifier = value; }
+		set { 
+			if( value > timeModifier )
+				OnTimeAdded( value - timeModifier );
+			else if( value < timeModifier )
+				OnTimeRemoved( value - timeModifier );
+
+			timeModifier = value; 
+		}
 	}
+
+	protected virtual void OnTimeAdded( float addition )
+	{
+
+	}
+	protected virtual void OnTimeRemoved( float subtraction )
+	{
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
