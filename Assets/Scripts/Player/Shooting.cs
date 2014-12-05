@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shooting : MonoBehaviour 
+public class Shooting : CharacterInput 
 {
 	public GameObject projectile;
 	public float shootDelay = 0.75f;
@@ -31,8 +31,7 @@ public class Shooting : MonoBehaviour
 		if(timer <= 0){
 			countdown = false;
 		}
-#if UNITY_STANDALONE
-		if( Input.GetMouseButtonDown(0) && !countdown )
+		if( GetShootInput() && !countdown )
 		{
 			countdown = true;
 			timer = shootDelay;
@@ -45,23 +44,6 @@ public class Shooting : MonoBehaviour
 			proj.GetComponent<Projectile>().direction = new Vector3( dir.x, 0.0f, dir.y );
 			proj.GetComponent<Projectile>().speed += PlyMovement.speed; */
 		}
-#endif
-#if UNITY_ANDROID
-		foreach(Touch touch in Input.touches){
-			if(touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled && !countdown){
-				countdown = true;
-				timer = shootDelay;
-				Shoot ();
-				
-				/*
-				Vector2 spawnPos = VectorExtras.OffsetPosInPointDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(hit.point.x, hit.point.z), 0.6f );
-				GameObject proj = (GameObject)Instantiate( projectile, new Vector3( spawnPos.x, 1.0f, spawnPos.y ), Quaternion.identity );
-				Vector2 dir = VectorExtras.Direction( new Vector2(transform.position.x, transform.position.z), new Vector2(hit.point.x, hit.point.z) );
-				proj.GetComponent<Projectile>().direction = new Vector3( dir.x, 0.0f, dir.y );
-				proj.GetComponent<Projectile>().speed += PlyMovement.speed; */
-			}
-		}
-#endif
 	}
 	void Shoot()
 	{
@@ -97,7 +79,7 @@ public class Shooting : MonoBehaviour
 	void LookAtMouse()
 	{
 		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Ray ray = GetSwipe() == 2 ? sRay : Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit))
 		{
 			//hit.collider.renderer.material.color = Color.red;

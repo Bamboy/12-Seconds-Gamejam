@@ -2,7 +2,7 @@
 using System.Collections;
 
 [ExecuteInEditMode]
-public class PlyMovement : MonoBehaviour {
+public class PlyMovement : CharacterInput {
 	public static int laneCount = 5;
 	public static float laneWidth = 2.5f;
 	public static float speed;
@@ -17,10 +17,6 @@ public class PlyMovement : MonoBehaviour {
 	
 	public bool drawLanes = true;
 
-	//Android
-	private Vector2 firstPosition;
-	private Vector2 lastPosition;
-
 	void Start()
 	{
 		trans = this.transform;
@@ -31,9 +27,8 @@ public class PlyMovement : MonoBehaviour {
 
 	void Update()
 	{
-#if UNITY_STANDALONE
 		speed = inspectorSpeed;
-		if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+		if(GetRightInput())
 		{
 			if(laneNumber < laneCount - 1)
 			{
@@ -41,7 +36,7 @@ public class PlyMovement : MonoBehaviour {
 					SetLaneNumber( laneNumber + 1 );
 			}
 		} 
-		else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+		else if(GetLeftInput())
 		{
 			if(laneNumber > 0)
 			{
@@ -58,47 +53,9 @@ public class PlyMovement : MonoBehaviour {
 		if( !CheckObstacles(Vector3.left, 0.075f) )
 			currSpeed = speed * speedMultiplier * Time.deltaTime;
 			transform.Translate( -1 * currSpeed, 0, 0, Space.World );
-#endif
 #if UNITY_EDITOR
 		if( drawLanes )
 			DrawLanes();
-#endif
-#if UNITY_ANDROID
-		foreach(Touch touch in Input.touches){
-			if(touch.phase == TouchPhase.Began){
-				firstPosition = touch.position;
-				lastPosition = touch.position;
-			}
-			if(touch.phase == TouchPhase.Moved){
-				lastPosition = touch.position;
-			}
-			if(touch.phase == TouchPhase.Ended){
-				if(firstPosition.x - lastPosition.x > 80){//swipe left
-					if(laneNumber > 0)
-					{
-						if( !CheckObstacles( Vector3.back, laneWidth ) )
-							SetLaneNumber( laneNumber - 1 );
-					}
-				}
-				if(firstPosition.x - lastPosition.x < -80){//swipe right
-					if(laneNumber < laneCount - 1)
-					{
-						if( !CheckObstacles( Vector3.forward, laneWidth ) )
-							SetLaneNumber( laneNumber + 1 );
-					}
-				}
-			}
-		}
-		speed = inspectorSpeed;
-		time += ( 1.225f * speedMultiplier * Time.deltaTime );
-		
-		Vector3 t = transform.position;
-		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
-		transform.position = t;
-		
-		if( !CheckObstacles(Vector3.left, 0.075f) )
-			currSpeed = speed * speedMultiplier * Time.deltaTime;
-		transform.Translate( -1 * currSpeed, 0, 0, Space.World );
 #endif
 	}
 	void SetLaneNumber( int newLane )
