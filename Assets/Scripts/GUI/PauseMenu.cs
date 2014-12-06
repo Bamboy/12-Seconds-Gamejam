@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour {
 	private bool isPaused;
+	private bool pauseAll;
 	private void Update (){
 		if(isPaused){
 			Time.timeScale = 0.0f;
@@ -17,12 +18,12 @@ public class PauseMenu : MonoBehaviour {
 			}
 		}
 		if(isPaused){
-			GUI.BeginGroup(new Rect((Screen.width/2) - 75, (Screen.height/2) - 150, 150, 300));
-			GUI.Box(new Rect(0, 0, 150, 300), "Paused");
-			if(GUI.Button(new Rect(0, 15, 150, 100), "Continue")){
+			GUI.BeginGroup(new Rect((Screen.width/2) - 75, (Screen.height/2) - 59, 150, 118));
+			GUI.Box(new Rect(0, 0, 150, 118), "Paused");
+			if(GUI.Button(new Rect(0, 18, 150, 50), "Continue")){
 				isPaused = false;
 			}
-			if(GUI.Button(new Rect(0, 115, 150, 100), "Quit")){
+			if(GUI.Button(new Rect(0, 68, 150, 50), "Quit")){
 				Application.LoadLevel(0);
 			}
 			GUI.EndGroup();

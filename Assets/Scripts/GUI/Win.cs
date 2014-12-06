@@ -5,18 +5,18 @@ public class Win : MonoBehaviour {
 	private bool _continue;
 	private void Update()
 	{
-		if(Main.OnWin())
+		if(Main.OnWin() && !_continue)
 		{
 			Time.timeScale = 0.0f;
 		} 
-		else if(Main.OnWin() && _continue)
+		else if(_continue)
 		{
 			Time.timeScale = 1.0f;
 		}
 	}
 	private void OnGUI()
 	{
-		if(Main.OnWin())
+		if(Main.OnWin() && !_continue)
 		{
 			GUI.BeginGroup(new Rect((Screen.width/2) - 75, (Screen.height/2) - 150, 150, 300));
 				GUI.Box(new Rect(0, 0, 150, 300), "You Win!");
