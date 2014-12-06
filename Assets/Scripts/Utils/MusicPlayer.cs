@@ -4,14 +4,20 @@ using System.Collections.Generic;
 //By Cristian "vozochris" Vozoca
 public class MusicPlayer : MonoBehaviour
 {
+	public static MusicPlayer instance;
+
 	private Dictionary<string, AudioSource> songs = new Dictionary<string, AudioSource>();
 	private string playing = null;
 
 	private string[] loopedSongs;
 	private int loopPlayIndex = 0;
 
+	private bool paused = false;
+
 	private void Awake()
 	{
+		instance = this;
+
 		Add("1", "Music/");
 		Add("2", "Music/");
 		Add("3", "Music/");
@@ -21,14 +27,20 @@ public class MusicPlayer : MonoBehaviour
 
 	private void Update()
 	{
-		if (loopedSongs != null)
+		if (!Paused)
 		{
-			if (playing != null)
+			if (loopedSongs != null)
 			{
-				if (!songs[playing].isPlaying)
-					Play(loopedSongs[++loopPlayIndex % loopedSongs.Length]);
+				if (playing != null)
+				{
+					if (!songs[playing].isPlaying)
+						Play(loopedSongs[++loopPlayIndex % loopedSongs.Length]);
+				}
 			}
 		}
+
+		if(Input.GetKeyDown(KeyCode.P))
+			Paused = !Paused;
 	}
 
 	private void Play(string id)
@@ -64,8 +76,22 @@ public class MusicPlayer : MonoBehaviour
 		songs.Remove(id);
 	}
 
-	public bool isPlaying
+	/// <summary>
+	/// If the music player is paused.
+	/// </summary>
+	/// <value><c>true</c> if paused; otherwise, <c>false</c>.</value>
+	public static bool Paused
 	{
-		get { return playing != null; }
+		get { return instance.paused; }
+		set {
+			instance.paused = value;print(instance.playing);
+			if (instance.playing != null)
+			{
+				if (instance.paused)
+					instance.songs[instance.playing].Pause();
+				else
+					instance.songs[instance.playing].Play();
+			}
+		}
 	}
 }
