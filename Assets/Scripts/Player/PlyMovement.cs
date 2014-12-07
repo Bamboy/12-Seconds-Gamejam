@@ -9,6 +9,8 @@ public class PlyMovement : CharacterInput {
 	public static float speedMultiplier = 1.0f;
 	public static float currSpeed;
 	public static Transform trans;
+	public static bool RightAnim;
+	public static bool LeftAnim;
 	public float inspectorSpeed = 6.5f;
 
 	public static int laneNumber;
@@ -33,36 +35,34 @@ public class PlyMovement : CharacterInput {
 		{
 			if(laneNumber < laneCount - 1)
 			{
-				if( !CheckObstacles( Vector3.forward, laneWidth ) )
+				if( !CheckObstacles( Vector3.forward, laneWidth ) ){
 					SetLaneNumber( laneNumber + 1 );
+					RightAnim = true;
+				}
 			}
-		} 
+		}
 		else if(GetLeftInput())
 		{
 			if(laneNumber > 0)
 			{
-				if( !CheckObstacles( Vector3.back, laneWidth ) )
+				if( !CheckObstacles( Vector3.back, laneWidth ) ){
 					SetLaneNumber( laneNumber - 1 );
+					LeftAnim = true;
+				}
 			}
+		}
+		else{
+			LeftAnim = false;
+			RightAnim = false;
 		}
 		time += ( 1.225f * speedMultiplier * Time.deltaTime );
 
 		Vector3 t = transform.position;
 		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
 		transform.position = t;
-
-		if( !CheckObstacles(Vector3.left, 0f) )
+		if( !CheckObstacles(Vector3.left, 0.075f) ){
 			currSpeed = speed * speedMultiplier * Time.deltaTime;
 			transform.Translate( -1 * currSpeed, 0, 0, Space.World );
-		RaycastHit obstacleHit;
-		if(Physics.Raycast(trans.position, Vector3.left, out obstacleHit)){
-			if(obstacleHit.distance <= 1f){
-				speedMultiplier = 0f;
-			} else {
-				speedMultiplier = 1.0f;
-			}
-		} else {
-			speedMultiplier = 1.0f;
 		}
 #if UNITY_EDITOR
 		if( drawLanes )
@@ -82,11 +82,7 @@ public class PlyMovement : CharacterInput {
 		if( Physics.Raycast( transform.position, dir, out hit ) )
 		{
 			if( hit.distance <= dist + 0.5f ){
-				if(hit.transform.tag == "Obstacle"){
-					return true;
-				} else {
-					return false;
-				}
+				return true;
 			} else {
 				return false;
 			}

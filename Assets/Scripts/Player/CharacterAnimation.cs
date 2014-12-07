@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterAnimation : MonoBehaviour {
+public class CharacterAnimation : CharacterInput {
 	private Animator anim;
 	private float speed;
 	private bool canCheck = false;
@@ -10,9 +10,17 @@ public class CharacterAnimation : MonoBehaviour {
 		anim = GetComponent<Animator>();
 	}
 	void Update () {
-		anim.SetFloat("Speed", (PlyMovement.speed * PlyMovement.speedMultiplier * Time.deltaTime) * 10);
+		RaycastHit hit;
+		if( Physics.Raycast( transform.position, Vector3.left, out hit ) )
+		{
+			if( hit.distance <= 1.1f ){
+				anim.SetFloat("Speed", 0f);
+			} else {
+				anim.SetFloat("Speed", (PlyMovement.speed * PlyMovement.speedMultiplier * Time.deltaTime) * 10);
+			}
+		}
 
-		if(Input.GetButtonDown("Fire1")){
+		if(GetShootInput()){
 			anim.SetBool("Fire", true);
 			Invoke("SetAnimBoolFalse", 0.833f);
 		}
@@ -20,9 +28,9 @@ public class CharacterAnimation : MonoBehaviour {
 		if(BaseTimer.instance.current < 0)
 			anim.SetBool("IsDead", true);
 
-		if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
+		if(PlyMovement.RightAnim){
 			anim.SetFloat("Direction", 1.0f);
-		} else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
+		} else if(PlyMovement.LeftAnim){
 			anim.SetFloat("Direction", -1.0f);
 		} else{
 			anim.SetFloat("Direction", 0.0f);

@@ -17,7 +17,7 @@ public class Timer : BaseTimer
 	private void Start()
 	{
 		time = this;
-		time.Init(timeEnd);
+			time.Init(timeEnd);
 		bg = bg_normal;
 
 		StartCoroutine("Blink_TimeLow");

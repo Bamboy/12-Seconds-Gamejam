@@ -34,4 +34,7 @@ public class PauseMenu : MonoBehaviour {
 			GUI.EndGroup();
 		}
 	}
+	private void OnApplicationPause(bool pauseStatus){
+		isPaused = pauseStatus;
+	}
 }
