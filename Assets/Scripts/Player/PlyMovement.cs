@@ -51,9 +51,19 @@ public class PlyMovement : CharacterInput {
 		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
 		transform.position = t;
 
-		if( !CheckObstacles(Vector3.left, 0.075f) )
+		if( !CheckObstacles(Vector3.left, 0f) )
 			currSpeed = speed * speedMultiplier * Time.deltaTime;
 			transform.Translate( -1 * currSpeed, 0, 0, Space.World );
+		RaycastHit obstacleHit;
+		if(Physics.Raycast(trans.position, Vector3.left, out obstacleHit)){
+			if(obstacleHit.distance <= 1f){
+				speedMultiplier = 0f;
+			} else {
+				speedMultiplier = 1.0f;
+			}
+		} else {
+			speedMultiplier = 1.0f;
+		}
 #if UNITY_EDITOR
 		if( drawLanes )
 			DrawLanes();
@@ -71,10 +81,15 @@ public class PlyMovement : CharacterInput {
 		RaycastHit hit;
 		if( Physics.Raycast( transform.position, dir, out hit ) )
 		{
-			if( hit.distance <= dist + 0.5f )
-				return true;
-			else
+			if( hit.distance <= dist + 0.5f ){
+				if(hit.transform.tag == "Obstacle"){
+					return true;
+				} else {
+					return false;
+				}
+			} else {
 				return false;
+			}
 		}
 		else
 			return false;

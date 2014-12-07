@@ -38,9 +38,6 @@ public class MusicPlayer : MonoBehaviour
 				}
 			}
 		}
-
-		if(Input.GetKeyDown(KeyCode.P))
-			Paused = !Paused;
 	}
 
 	private void Play(string id)
@@ -84,7 +81,7 @@ public class MusicPlayer : MonoBehaviour
 	{
 		get { return instance.paused; }
 		set {
-			instance.paused = value;print(instance.playing);
+			instance.paused = value;
 			if (instance.playing != null)
 			{
 				if (instance.paused)

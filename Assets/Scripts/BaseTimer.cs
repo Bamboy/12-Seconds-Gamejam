@@ -19,7 +19,8 @@ public abstract class BaseTimer : MonoBehaviour
 
 	private void Update()
 	{
-		current = _time - Time.time - start + timeModifier;
+		if(Main.playerAlive)
+			current = _time - Time.time - start + timeModifier;
 
 		if (current < 0)
 		{

@@ -4,11 +4,16 @@ using System.Collections;
 public class PauseMenu : MonoBehaviour {
 	private bool isPaused;
 	private bool pauseAll;
+	private bool temporarybool;
 	private void Update (){
 		if(isPaused){
 			Time.timeScale = 0.0f;
-		} else {
+			MusicPlayer.Paused = true;
+			temporarybool = false;
+		} else if(!temporarybool && !isPaused){
 			Time.timeScale = 1.0f;
+			MusicPlayer.Paused = false;
+			temporarybool = true;
 		}
 	}
 	private void OnGUI(){
