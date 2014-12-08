@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Utils.Audio;
 
 public class DeathMenu : MonoBehaviour {
 	private float timer = 1.042f;

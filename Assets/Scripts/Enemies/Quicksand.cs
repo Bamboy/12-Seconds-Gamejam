@@ -6,7 +6,7 @@ namespace Enemies
 	{
 		public float speedMultiplier = 0.2f;
 
-		void Awake () 
+		protected override void Awake()
 		{
 			collider.isTrigger = true;
 			rigidbody.useGravity = false;

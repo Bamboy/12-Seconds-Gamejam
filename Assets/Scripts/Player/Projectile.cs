@@ -1,6 +1,6 @@
 using UnityEngine;
 using Enemies;
-
+using Utils;
 
 public class Projectile : MonoBehaviour 
 {
@@ -43,8 +43,8 @@ public class Projectile : MonoBehaviour
 					BaseTimer.instance.TimeModifier += 3;
 					crabProjCount = 0;
 					CreateSplatter( col );
-					CreateText( col, "+3 Sec", textColor );
-					Destroy( col.gameObject );
+				CreateText( col, "+3 Sec", textColor );print(col);
+					col.GetComponent<BaseEnemy>().Die();
 				}
 				break;
 			
@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour
 					starfishProjCount = 0;
 					CreateSplatter( col );
 					CreateText( col, "+2 Sec", textColor );
-					Destroy( col.gameObject );
+					col.GetComponent<BaseEnemy>().Die();
 				}
 				break;
 				
@@ -67,7 +67,7 @@ public class Projectile : MonoBehaviour
 					plantProjCount = 0;
 					CreateSplatter( col );
 					CreateText( col, "+5 Sec", textColor );
-					Destroy( col.gameObject );
+					col.GetComponent<BaseEnemy>().Die();
 				}
 				break;
 				
@@ -78,7 +78,7 @@ public class Projectile : MonoBehaviour
 					rockProjCount = 0;
 					CreateSplatter( col );
 					CreateText( col, "+12 Sec", textColor );
-					Destroy( col.gameObject );
+					col.GetComponent<BaseEnemy>().Die();
 				}
 				break;
 				

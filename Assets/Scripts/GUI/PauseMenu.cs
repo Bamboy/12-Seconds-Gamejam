@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Utils.Audio;
 
 public class PauseMenu : MonoBehaviour {
 	private bool isPaused;

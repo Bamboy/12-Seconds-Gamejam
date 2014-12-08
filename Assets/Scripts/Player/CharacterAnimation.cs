@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Utils;
 
 public class CharacterAnimation : CharacterInput {
 	private Animator anim;
 	private float speed;
-	private bool canCheck = false;
+	//private bool canCheck = false;
 
 	void Start () {
 		anim = GetComponent<Animator>();

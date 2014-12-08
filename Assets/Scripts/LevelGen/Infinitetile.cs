@@ -31,7 +31,7 @@ public class Infinitetile : MonoBehaviour
 				area++;
 			}
 
-			GameObject obj = (GameObject)Instantiate(prefab[area], position, Quaternion.identity);
+			Instantiate(prefab[area], position, Quaternion.identity);
 
 			timer = 3.0f;
 		}
