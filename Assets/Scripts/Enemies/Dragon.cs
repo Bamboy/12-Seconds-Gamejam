@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Utils;
 
 //By Cristian "vozochris" Vozoca
 namespace Enemies
@@ -144,9 +145,14 @@ namespace Enemies
 				health--;
 				if (health == 0)
 				{
-					Destroy(gameObject);
+					Die ();
 				}
 			}
+		}
+
+		public override void Die ()
+		{
+			Destroy(gameObject);
 		}
 	}
 }

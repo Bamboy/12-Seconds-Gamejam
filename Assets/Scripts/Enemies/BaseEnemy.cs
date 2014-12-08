@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils.Audio;
 
 //By Cristian "vozochris" Vozoca
 namespace Enemies
@@ -15,6 +16,13 @@ namespace Enemies
 		protected virtual void Update()
 		{
 			transform.Translate(movementSpeed * Time.deltaTime, 0, 0, Space.World);
+		}
+
+		public virtual void Die()
+		{
+			Destroy(gameObject);
+			if (Random.value < 0.3f)// 30%
+				SoundEffectsPlayer.PlayRandomKill();
 		}
 	}
 }

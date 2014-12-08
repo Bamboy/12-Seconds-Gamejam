@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Utils;
 
 public class Timer : BaseTimer 
 {
-	private Timer time;
 	public float timeEnd;
 	public Texture2D bg_normal;
 	public Texture2D bg_warning;
