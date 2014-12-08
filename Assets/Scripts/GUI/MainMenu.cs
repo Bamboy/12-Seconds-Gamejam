@@ -3,17 +3,15 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 	bool creditToggle;
-	float lol;
 
 	void OnGUI(){
 		Play();
 		Credit();
 		Quit();
-		GUI.Label(new Rect(Screen.width/2, 10, 50, 50), Application.GetStreamProgressForLevel(1).ToString());
 	}
 	void Play(){
 		if(GUI.Button(new Rect(0, 0, 100, 100), "Play")){
-			Application.LoadLevel(1);
+			Application.LoadLevel(2);
 		}
 	}
 	void Credit(){

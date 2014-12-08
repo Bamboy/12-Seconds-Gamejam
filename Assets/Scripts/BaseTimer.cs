@@ -12,7 +12,7 @@ public abstract class BaseTimer : MonoBehaviour
 	public void Init(float time)
 	{
 		instance = this;
-		start = Time.time;
+		start = Time.timeSinceLevelLoad;
 		this._time = start + time;
 		timeModifier = 0;
 	}
@@ -20,7 +20,7 @@ public abstract class BaseTimer : MonoBehaviour
 	private void Update()
 	{
 		if(Main.playerAlive)
-			current = _time - Time.time - start + timeModifier;
+			current = _time - Time.timeSinceLevelLoad - start + timeModifier;
 
 		if (current < 0)
 		{

@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour {
 				isPaused = false;
 			}
 			if(GUI.Button(new Rect(0, 68, 150, 50), "Quit")){
-				Application.LoadLevel(0);
+				Application.LoadLevel(1);
 			}
 			GUI.EndGroup();
 		}
