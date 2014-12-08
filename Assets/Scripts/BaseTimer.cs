@@ -5,22 +5,23 @@ public abstract class BaseTimer : MonoBehaviour
 {
 	public static BaseTimer instance;
 	private float start;
-	private float _time;
+	private float time;
 	private float timeModifier;
 	public float current;
 
 	public void Init(float time)
 	{
 		instance = this;
-		start = Time.time;
-		this._time = start + time;
+		start = Time.timeSinceLevelLoad;
+		this.time = start + time;
 		timeModifier = 0;
+		current = 0;
 	}
 
 	private void Update()
 	{
 		if(Main.playerAlive)
-			current = _time - Time.time - start + timeModifier;
+			current = time - Time.timeSinceLevelLoad - start + timeModifier;
 
 		if (current < 0)
 		{

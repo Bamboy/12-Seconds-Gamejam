@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Timer : BaseTimer 
 {
-	private Timer time;
 	public float timeEnd;
 	public Texture2D bg_normal;
 	public Texture2D bg_warning;
@@ -16,8 +15,7 @@ public class Timer : BaseTimer
 
 	private void Start()
 	{
-		time = this;
-			time.Init(timeEnd);
+		Init(timeEnd);
 		bg = bg_normal;
 
 		StartCoroutine("Blink_TimeLow");
@@ -28,7 +26,7 @@ public class Timer : BaseTimer
 		GUIStyle guiStyle = new GUIStyle();
 		guiStyle.alignment = TextAnchor.MiddleCenter;
 		guiStyle.fontSize = 50;
-		GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), ((int)time.current).ToString(), guiStyle);
+		GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), ((int)current).ToString(), guiStyle);
 	}
 
 	protected override void OnTimeAdded( float addition )
