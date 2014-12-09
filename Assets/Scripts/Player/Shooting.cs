@@ -16,7 +16,7 @@ public class Shooting : CharacterInput
 	public static float Delay
 	{
 		get{ return delay; }
-		set{ delay = value; delay = Mathf.Clamp( delay, 0.075f, 1.25f ); }
+		set{ delay = value; delay = Mathf.Clamp( delay, 0.075f, 1.5f ); }
 	}
 
 	// Use this for initialization

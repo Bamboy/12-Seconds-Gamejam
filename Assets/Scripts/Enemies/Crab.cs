@@ -5,21 +5,18 @@ namespace Enemies
 {
 	public class Crab : BaseEnemy
 	{
-		public int health = 3;
 		protected override void Awake ()
 		{
-
+			base.Awake ();
+			health = 3;
+			timePenalty = 5.75f;
+			timeBonus = 3.0f;
 		}
 
 		protected override void Update ()
 		{
-			if(health == 0){
-				BaseTimer.instance.TimeModifier += 3;
-				Die (this.collider, "+3 Seconds");
-			}
+			base.Update ();
 		}
-		public void Hit(){
-			health--;
-		}
+
 	}
 }

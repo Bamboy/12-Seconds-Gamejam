@@ -22,7 +22,7 @@ public class PlyMovement : CharacterInput
 	public static float Speed
 	{
 		get{ return speed; }
-		set{ speed = value; speed = Mathf.Clamp( speed, 2.0f, 15.0f ); }
+		set{ speed = value; speed = Mathf.Clamp( speed, 2.25f, 15.0f ); }
 	}
 
 	void Start()

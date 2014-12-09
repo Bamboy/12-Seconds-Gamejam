@@ -31,7 +31,7 @@ public class Main : MonoBehaviour
 
 	public static bool OnWin()
 	{
-		if(Enemies.Dragon.dragon.health <= 0){
+		if(Enemies.Dragon.dragon.Health <= 0){
 			return true;
 		} else {
 			return false;

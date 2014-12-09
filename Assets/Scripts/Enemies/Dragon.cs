@@ -13,7 +13,6 @@ namespace Enemies
 		public static Dragon dragon;
 		public static bool dragonActive = false;
 		public static bool introDone = false;
-		public int health;
 		public float fireBreatheTime = 1.5f;
 		public float fireTimePenalty = 0.05f;
 		public Vector2 fireCooldownRange = Vector2.one;
@@ -25,10 +24,15 @@ namespace Enemies
 		//Behaviour bools
 		private bool doneBreathingFire = true;
 
+		public int Health
+		{ get{ return health; } }
+
 		protected override void Awake()
 		{
 			base.Awake();
 			dragon = this;
+			health = 25;
+			timePenalty = 0.0f; //The dragon will never come in contact with the player.
 		}
 		public void Init()
 		{
@@ -138,21 +142,27 @@ namespace Enemies
 			StartCoroutine("BreatheFire"); //Loop this yield.
 		}
 
-		public void Hit()
+		public override void OnTakeDamage( int value )
 		{
 			if( dragonActive )
 			{
-				health--;
-				if (health == 0)
-				{
-					Die ();
-				}
+				health -= value;
+				if (health <= 0)
+					Kill();
 			}
 		}
 
-		public override void Die ()
-		{
-			Destroy(gameObject);
-		}
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 }
