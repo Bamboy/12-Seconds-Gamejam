@@ -27,7 +27,7 @@ namespace Utils.Audio
 		/// </summary>
 		/// <param name="id">Id.</param>
 		/// <param name="path">Path.</param>
-		protected void Add(string id, string path = null)
+		protected void Add(string id, string path)
 		{
 			Add(id, Resources.Load<AudioClip>("Audio/" + path + id));
 		}

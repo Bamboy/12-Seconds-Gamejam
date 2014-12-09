@@ -3,7 +3,12 @@ using Utils.Audio;
 
 public class DeathMenu : MonoBehaviour {
 	private float timer = 1.042f;
-
+	public GUISkin skin;
+	public Texture lose;
+	public Texture[] textures;
+	float Width = 800;
+	float Height = 480;
+	Vector3 Scale;
 	private void Start(){
 		timer = 1.042f;
 	}
@@ -17,17 +22,22 @@ public class DeathMenu : MonoBehaviour {
 		}
 	}
 	private void OnGUI(){
+		Scale.x = Screen.width/Width;
+		Scale.y = Screen.height/Height;
+		Scale.z = 1;
+		GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Scale);
+		GUI.skin = skin;
 		if(!Main.playerAlive){
 			if(timer <= 0){
-				GUI.BeginGroup(new Rect((Screen.width/2) - 75, (Screen.height/2) - 59, 150, 118));
-				GUI.Box(new Rect(0, 0, 150, 118), "You have lost.");
-				if(GUI.Button(new Rect(0, 18, 150, 50), "Restart")){
+				GUI.DrawTexture(new Rect(0, 0, Width, Height), lose);
+				if(GUI.Button(new Rect((Width/2) - 120, (Height/2) + 70, 240, 65), "")){
 					Application.LoadLevel(Application.loadedLevel);
 				}
-				if(GUI.Button(new Rect(0, 68, 150, 50), "Quit")){
-					Application.LoadLevel(0);
+				GUI.DrawTexture(new Rect((Width/2) - 60, (Height/2) + 85f, 110, 30), textures[0]);
+				if(GUI.Button(new Rect((Width/2) - 120, (Height/2) + 135, 240, 65), "")){
+					Application.LoadLevel(1);
 				}
-				GUI.EndGroup();
+				GUI.DrawTexture(new Rect((Width/2) - 40, (Height/2) + 150, 80, 30), textures[1]);
 			}
 		}
 	}
