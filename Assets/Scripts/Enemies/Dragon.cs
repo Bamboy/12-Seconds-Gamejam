@@ -63,7 +63,7 @@ namespace Enemies
 				}
 			}
 
-			movementSpeed = -PlyMovement.speed;
+			movementSpeed = -PlyMovement.Speed;
 			base.Update();
 		}
 

@@ -16,7 +16,7 @@ public class CharacterAnimation : CharacterInput {
 			if( hit.distance <= 1.1f ){
 				anim.SetFloat("Speed", 0f);
 			} else {
-				anim.SetFloat("Speed", (PlyMovement.speed * PlyMovement.speedMultiplier * Time.deltaTime) * 10);
+				anim.SetFloat("Speed", (PlyMovement.Speed * PlyMovement.speedMultiplier * Time.deltaTime) * 10);
 			}
 		}
 

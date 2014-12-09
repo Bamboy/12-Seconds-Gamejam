@@ -24,5 +24,16 @@ namespace Enemies
 			if (Random.value < 0.3f)// 30%
 				SoundEffectsPlayer.PlayRandomKill();
 		}
+
+		public virtual void OnHitPlayer(){}
+
+		protected virtual void OnTriggerEnter(Collider col)
+		{
+			if( col.tag == "Player" )
+			{
+				OnHitPlayer();
+			}
+
+		}
 	}
 }

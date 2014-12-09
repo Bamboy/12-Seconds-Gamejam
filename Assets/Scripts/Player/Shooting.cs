@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Shooting : CharacterInput 
 {
-	public GameObject projectile;
-	public float shootDelay = 0.75f;
+	public static GameObject projectile;
+	private static float delay = 0.45f;
 	private bool countdown;
 	private float timer;
 
@@ -13,9 +13,17 @@ public class Shooting : CharacterInput
 	private Quaternion baseRotation;
 	private Quaternion targetRotation;
 
+	public static float Delay
+	{
+		get{ return delay; }
+		set{ delay = value; delay = Mathf.Clamp( delay, 0.075f, 1.25f ); }
+	}
+
 	// Use this for initialization
-	void Start () {
-		timer = shootDelay;
+	void Start () 
+	{
+		projectile = Resources.Load("Prefabs/Bullets/BaseProjectile") as GameObject;
+		timer = delay;
 		baseRotation = transform.rotation;
 		LookAtTarget( transform.position + new Vector3( -10, 0, 0 ) );
 	}
@@ -34,7 +42,7 @@ public class Shooting : CharacterInput
 		if( GetShootInput() && !countdown )
 		{
 			countdown = true;
-			timer = shootDelay;
+			timer = delay;
 			Shoot ();
 
 			/*
@@ -62,7 +70,7 @@ public class Shooting : CharacterInput
 		GameObject proj = (GameObject)Instantiate( projectile, new Vector3( spawnPos.x, 1.0f, spawnPos.y ), Quaternion.identity );
 		Vector3 dir = transform.forward;
 		proj.GetComponent<Projectile>().direction = dir;
-		proj.GetComponent<Projectile>().speed += PlyMovement.speed;
+		proj.GetComponent<Projectile>().speed += PlyMovement.Speed;
 	}
 	void LookAtTarget(Vector3 target)
 	{

@@ -2,12 +2,12 @@
 using System.Collections;
 
 [ExecuteInEditMode]
-public class PlyMovement : CharacterInput {
+public class PlyMovement : CharacterInput 
+{
 	public static int laneCount = 5;
 	public static float laneWidth = 2.5f;
-	public static float speed;
-	public static float speedMultiplier = 1.0f;
-	public static float currSpeed;
+	private static float speed; //This is used for permanant speed changes, such as speed pickups.
+	public static float speedMultiplier = 1.0f; //This is used for temporary slows, such as quicksand
 	public static Transform trans;
 	public static bool RightAnim;
 	public static bool LeftAnim;
@@ -19,6 +19,12 @@ public class PlyMovement : CharacterInput {
 	
 	public bool drawLanes = true;
 
+	public static float Speed
+	{
+		get{ return speed; }
+		set{ speed = value; speed = Mathf.Clamp( speed, 2.0f, 15.0f ); }
+	}
+
 	void Start()
 	{
 		trans = this.transform;
@@ -26,11 +32,11 @@ public class PlyMovement : CharacterInput {
 		lastLaneNumber = 0;
 		laneNumber = 0;
 		speedMultiplier = 1.0f;
+		speed = inspectorSpeed;
 	}
 
 	void Update()
 	{
-		speed = inspectorSpeed;
 		if(GetRightInput())
 		{
 			if(laneNumber < laneCount - 1)
@@ -55,15 +61,18 @@ public class PlyMovement : CharacterInput {
 			LeftAnim = false;
 			RightAnim = false;
 		}
+
 		time += ( 1.225f * speedMultiplier * Time.deltaTime );
 
 		Vector3 t = transform.position;
 		t.z = Mathfx.CustomBerp( lastLaneNumber * laneWidth, laneNumber * laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
 		transform.position = t;
+
 		if( !CheckObstacles(Vector3.left, 0.075f) ){
-			currSpeed = speed * speedMultiplier * Time.deltaTime;
+			float currSpeed = speed * speedMultiplier * Time.deltaTime;
 			transform.Translate( -1 * currSpeed, 0, 0, Space.World );
 		}
+
 #if UNITY_EDITOR
 		if( drawLanes )
 			DrawLanes();
