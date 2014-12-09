@@ -10,14 +10,23 @@ namespace Enemies
 
 		private bool hasPassed;
 		private bool hasDeducted;
+
+		public int health = 3;
+
 		private void Start() 
 		{
 			movementSpeed = Random.Range( speedRange.x, speedRange.y );
 		}
-
+		public void Hit(){
+			health--;
+		}
 		protected override void Update()
 		{
 			base.Update();
+			if(health == 0){
+				BaseTimer.instance.TimeModifier += 2;
+				Die (this.collider, "+2 Seconds");
+			}
 			if(Vector3.Distance(transform.position, Main.player.position) < 2.0f && !hasDeducted)
 			{
 				hasPassed = true;

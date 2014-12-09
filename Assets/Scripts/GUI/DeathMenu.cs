@@ -35,7 +35,7 @@ public class DeathMenu : MonoBehaviour {
 				}
 				GUI.DrawTexture(new Rect((Width/2) - 60, (Height/2) + 85f, 110, 30), textures[0]);
 				if(GUI.Button(new Rect((Width/2) - 120, (Height/2) + 135, 240, 65), "")){
-					Application.LoadLevel(0);
+					Application.LoadLevel(1);
 				}
 				GUI.DrawTexture(new Rect((Width/2) - 40, (Height/2) + 150, 80, 30), textures[1]);
 			}
