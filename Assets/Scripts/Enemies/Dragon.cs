@@ -20,6 +20,7 @@ namespace Enemies
 		private int lane = 2; //What lane we are in. Start in the middle.
 		private int lastLane = 2;
 		private float time = 0.0f;
+		private AudioSource breathAudio;
 
 		//Behaviour bools
 		private bool doneBreathingFire = true;
@@ -30,6 +31,7 @@ namespace Enemies
 		protected override void Awake()
 		{
 			base.Awake();
+			breathAudio = GetComponent<AudioSource>();
 			dragon = this;
 			health = 25;
 			timePenalty = 0.0f; //The dragon will never come in contact with the player.
@@ -133,11 +135,13 @@ namespace Enemies
 			yield return new WaitForSeconds( Random.Range(fireCooldownRange.x, fireCooldownRange.y) );
 
 			doneBreathingFire = false;
+			breathAudio.Play();
 			anim.SetBool ("breatheFire", true);
 			yield return new WaitForSeconds( fireBreatheTime + 0.25f ); //0.25f is the intro animation time.
 			anim.SetBool ("breatheFire", false);
 			yield return new WaitForSeconds( 0.5f ); //0.5f is the outro animation time.
 			doneBreathingFire = true;
+			breathAudio.Stop();
 
 			StartCoroutine("BreatheFire"); //Loop this yield.
 		}

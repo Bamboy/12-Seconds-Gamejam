@@ -10,7 +10,9 @@ public class Main : MonoBehaviour
 	public static SoundEffectsPlayer soundEffectsPlayer;
 
 	public static bool playerAlive = true;
-	
+
+	[Range(0.0f, 1.0f)]
+	public float masterVolume = 1.0f;
 	[Range(0.0f,1.0f)]
 	public float musicVolume = 0.8f;
 	[Range(0.0f,1.0f)]
@@ -20,6 +22,7 @@ public class Main : MonoBehaviour
 
 	private void Awake()
 	{
+		AudioHelper.MasterVolume = masterVolume;
 		AudioHelper.MusicVolume = musicVolume;
 		AudioHelper.EffectVolume = effectVolume;
 		AudioHelper.VoiceVolume = voiceVolume;

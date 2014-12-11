@@ -17,7 +17,10 @@ namespace Enemies
 		{
 			base.Update ();
 		}
-
+		public override void OnTakeDamage (int value)
+		{
+			base.OnTakeDamage (value);
+		}
 
 
 

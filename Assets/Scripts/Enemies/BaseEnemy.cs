@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
 using Utils.Audio;
+using System.Collections.Generic;
 
 //By Cristian "vozochris" Vozoca
+
+
 namespace Enemies
 {
 	public abstract class BaseEnemy : MonoBehaviour
 	{
+		protected GameObject referenceObject;
+		public AudioClip hitOne;
+		public AudioClip hitTwo;
+
 		public float movementSpeed;
 		protected float timeBonus;
 		protected float timePenalty;
@@ -16,6 +23,7 @@ namespace Enemies
 
 		protected virtual void Awake()
 		{
+			referenceObject = Camera.main.gameObject;
 			gameObject.AddComponent<Distancedeleter>();
 		}
 
@@ -39,6 +47,11 @@ namespace Enemies
 
 		public virtual void OnTakeDamage( int value )
 		{
+			if(Random.Range(0f, 1f) < 0.5f)
+				Utils.Audio.AudioHelper.PlayClipAtPoint(hitOne, Vector3.zero, Utils.Audio.AudioHelper.EffectVolume);
+			else
+				Utils.Audio.AudioHelper.PlayClipAtPoint(hitTwo, Vector3.zero, Utils.Audio.AudioHelper.EffectVolume);
+
 			health -= value;
 			if( health <= 0 )
 				Kill ();

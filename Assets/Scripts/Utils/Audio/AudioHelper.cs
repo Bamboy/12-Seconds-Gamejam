@@ -176,6 +176,8 @@ namespace Utils.Audio
 		}
 		public static AudioSource CreateAudioSource( Transform obj, AudioClip clip, float volume, float pitch )
 		{
+			if(clip == null)
+				Debug.Log ("bad clip");
 			AudioSource audio = obj.gameObject.AddComponent<AudioSource>();
 
 			audio.clip = clip;

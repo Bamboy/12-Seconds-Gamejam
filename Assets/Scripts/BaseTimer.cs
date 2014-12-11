@@ -20,7 +20,7 @@ public abstract class BaseTimer : MonoBehaviour
 	private void Update()
 	{
 		if(Main.playerAlive)
-			current = _time - Time.timeSinceLevelLoad - start + timeModifier;
+			current = Infinitetile.area == 1 ? (_time - (Time.timeSinceLevelLoad * 2) - start + timeModifier) : _time - Time.timeSinceLevelLoad - start + timeModifier;
 
 		if (current < 0)
 		{

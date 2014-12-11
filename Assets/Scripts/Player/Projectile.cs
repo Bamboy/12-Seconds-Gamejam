@@ -6,6 +6,9 @@ public class Projectile : MonoBehaviour
 {
 	public Vector3 direction;
 	public float speed = 3.0f;
+	public AudioSource onHit;
+	public AudioClip[] hitFiles;
+	public GameObject audioSource;
 
 	void Start()
 	{

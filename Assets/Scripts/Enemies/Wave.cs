@@ -5,7 +5,6 @@ namespace Enemies
 {
 	public class Wave : BaseEnemy
 	{
-		//force change
 		public float speedPenalty = 1.0f;
 		public float texSpeed = 0.2f;
 		private bool hasPassed;

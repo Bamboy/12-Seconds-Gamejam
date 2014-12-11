@@ -13,7 +13,7 @@ namespace Enemies
 		protected override void Awake() 
 		{
 			base.Awake ();
-			health = 5;
+			health = 4;
 			timePenalty = 10.0f;
 			timeBonus = 2.0f;
 			movementSpeed = Random.Range( speedRange.x, speedRange.y );

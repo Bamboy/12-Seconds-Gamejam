@@ -19,6 +19,8 @@ public class PauseMenu : MonoBehaviour {
 			MusicPlayer.Paused = false;
 			temporarybool = true;
 		}
+		if(Input.GetKeyDown(KeyCode.Escape))
+			isPaused = true;
 	}
 	private void OnGUI(){
 		if(!isPaused){
@@ -29,6 +31,7 @@ public class PauseMenu : MonoBehaviour {
 		}
 		GUI.skin = skin;
 		if(isPaused){
+			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), textures[3]);
 			GUI.BeginGroup(new Rect((Screen.width/2) - 150, (Screen.height/2) - 150, 300, 300));
 			GUI.Box(new Rect(0, 0, 300, 300), "Paused");
 			if(GUI.Button(new Rect(50, 75, 200, 60), "")){

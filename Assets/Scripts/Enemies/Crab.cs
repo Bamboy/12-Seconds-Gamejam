@@ -15,7 +15,7 @@ namespace Enemies
 
 		protected override void Update ()
 		{
-			base.Update ();
+			transform.Translate(-2 * Time.deltaTime, 0, 0, Space.World);
 		}
 
 	}

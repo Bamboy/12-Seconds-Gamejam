@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Utils.Audio;
 
 namespace Excelsion.Pickups
 {
 	[RequireComponent( typeof(Rigidbody), typeof(BoxCollider), typeof(Distancedeleter) )]
 	public abstract class PickupBehaviour : MonoBehaviour 
 	{
+		public AudioClip pickupAudioOne;
+		public AudioClip pickupAudioTwo;
+
 		protected virtual void Start()
 		{
 			rigidbody.isKinematic = true;
@@ -20,6 +24,10 @@ namespace Excelsion.Pickups
 		{
 			if( col.tag == "Player" )
 			{
+				if(Random.Range(0f, 1f) < 0.5f)
+					AudioHelper.PlayClipAtPoint(pickupAudioOne, Vector3.zero, AudioHelper.EffectVolume);
+				else
+					AudioHelper.PlayClipAtPoint(pickupAudioTwo, Vector3.zero, AudioHelper.EffectVolume);
 				OnPickup();
 				Destroy( this.gameObject );
 			}

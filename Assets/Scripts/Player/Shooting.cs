@@ -12,6 +12,7 @@ public class Shooting : CharacterInput
 	public float maxAngle = 35.0f;
 	private Quaternion baseRotation;
 	private Quaternion targetRotation;
+	public AudioClip shootAudio;
 
 	public static float Delay
 	{
@@ -55,6 +56,7 @@ public class Shooting : CharacterInput
 	}
 	void Shoot()
 	{
+		Utils.Audio.AudioHelper.PlayClipAtPoint(shootAudio, Vector3.zero, Utils.Audio.AudioHelper.EffectVolume);
 		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit))
