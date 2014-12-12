@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Utils.Audio;
 
 public class MainMenu : MonoBehaviour {
 	public Texture background;
@@ -13,6 +14,7 @@ public class MainMenu : MonoBehaviour {
 	float counter = 100;
 	Vector3 Scale;
 	bool creditToggle;
+	bool optionToggle;
 
 	void Update(){
 		counter -= Time.deltaTime * 10;
@@ -26,13 +28,15 @@ public class MainMenu : MonoBehaviour {
 		GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Scale);
 		GUI.DrawTexture(new Rect(0, 0, Width, Height), background);
 		GUI.DrawTexture(new Rect((Width/2) - 125, (Height/2)- 175, 250, 350), boxes);
-		if(!creditToggle)
+		if(!creditToggle && !optionToggle){
 			GUI.DrawTexture(new Rect((Width/2) - 100, (Height/2) - 145, 200, 70), mainScreenTexture);
+		}
 		if(Application.isLoadingLevel)
 			GUI.Label(new Rect(0, 0, 100, 50), "Loading...");
 		Play();
 		Credit();
 		Quit();
+		Options();
 		if(GUI.Button(new Rect(0, Height - 100, 100, 100), "Excelsion"))
 			Application.OpenURL("www.excelsion.org");
 	}
@@ -45,6 +49,7 @@ public class MainMenu : MonoBehaviour {
 	void Credit(){
 		if(GUI.Button(new Rect((Width/2) - 121, (Height/2) + 43, 238, 44), "", GUIStyle.none)){
 			creditToggle = !creditToggle;
+			optionToggle = false;
 		}
 		GUI.DrawTexture(new Rect((Width/2) - 60, (Height/2) + 54, 120, 20), credits);
 		if(creditToggle){
@@ -70,5 +75,22 @@ public class MainMenu : MonoBehaviour {
 			Application.Quit();
 		}
 		GUI.DrawTexture(new Rect((Width/2) - 60, (Height/2) + 135, 120, 20), quit);
+	}
+	void Options(){
+		if(GUI.Button(new Rect(Width - 150, 0, 150, 50), "Options")){
+			optionToggle = !optionToggle;
+		}
+		if(optionToggle){
+			GUI.BeginGroup(new Rect((Width/2) - 109, (Height/2) - 154f, 211.5f, 91));
+			GUI.Label(new Rect(5, 0, 50, 20), "Master");
+			AudioHelper.MasterVolume = GUI.HorizontalSlider(new Rect(50, 5, 160, 10), AudioHelper.MasterVolume, 0f, 1f);
+			GUI.Label(new Rect(5, 20, 50, 20), "Music");
+			AudioHelper.MusicVolume = GUI.HorizontalSlider(new Rect(50, 25, 160, 10), AudioHelper.MusicVolume, 0f, 1f);
+			GUI.Label(new Rect(5, 40, 50, 20), "Effect");
+			AudioHelper.EffectVolume = GUI.HorizontalSlider(new Rect(50, 45, 160, 10), AudioHelper.EffectVolume, 0f, 1f);
+			GUI.Label(new Rect(5, 60, 50, 20), "Voice");
+			AudioHelper.VoiceVolume = GUI.HorizontalSlider(new Rect(50, 65, 160, 10), AudioHelper.VoiceVolume, 0f, 1f);
+			GUI.EndGroup();
+		}
 	}
 }

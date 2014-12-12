@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace UI.Splash{
+namespace asfgsadf{
 	public class SplashScreen : MonoBehaviour {
 		public Texture2D SplashBackground;
 
