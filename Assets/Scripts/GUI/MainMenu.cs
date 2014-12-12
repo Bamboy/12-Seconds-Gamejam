@@ -34,7 +34,8 @@ public class MainMenu : MonoBehaviour {
 		Credit();
 		Quit();
 		if(GUI.Button(new Rect(0, Height - 100, 100, 100), "Excelsion"))
-			Application.OpenURL("www.excelsion.org");
+			Application.OpenURL("http://excelsion.org");
+		
 	}
 	void Play(){
 		if(GUI.Button(new Rect((Width/2) - 121, (Height/2) - 35, 238, 44), "", GUIStyle.none)){
@@ -48,7 +49,7 @@ public class MainMenu : MonoBehaviour {
 		}
 		GUI.DrawTexture(new Rect((Width/2) - 60, (Height/2) + 54, 120, 20), credits);
 		if(creditToggle){
-			if(counter > -160){
+			if(counter > -200){
 				GUI.BeginGroup(new Rect((Width/2) - 109, (Height/2) - 154f, 211.5f, 91));
 				GUI.Label(new Rect(0, 0 + counter, 200, 100), "Justin Bruystens");
 				GUI.Label(new Rect(0, 20 + counter, 200, 100), "Nick Evans");
@@ -59,6 +60,7 @@ public class MainMenu : MonoBehaviour {
 				GUI.Label(new Rect(0, 120 + counter, 200, 100), "Tristan Gray");
 				GUI.Label(new Rect(0, 140 + counter, 200, 100), "Cristian Vozoca");
 				GUI.Label(new Rect(0, 160 + counter, 200, 100), "Sebastian Ujhazi");
+				GUI.Label(new Rect(0, 180 + counter, 200, 100), "Noah Kew");
 				GUI.EndGroup();
 			} else {
 				creditToggle = false;
