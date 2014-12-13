@@ -10,6 +10,7 @@ namespace UI{
 		private void Awake(){
 			instance = this;
 		}
+
 		public float _masterVolume{
 			get{return AudioHelper.MasterVolume;}
 			set{ AudioHelper.MasterVolume = value;}

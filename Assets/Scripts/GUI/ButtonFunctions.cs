@@ -11,6 +11,9 @@ namespace UI{
 		public void Exit(){
 			Application.Quit();
 		}
+		public void ReloadCurrentLevel(){
+			Application.LoadLevel(Application.loadedLevel);
+		}
 		public void GoToNewLevel(int LevelID){
 			Application.LoadLevel(LevelID);
 		}
@@ -25,6 +28,9 @@ namespace UI{
 			optionsEnable = false;
 			options.SetActive(false);
 			credits.SetActive(creditsEnable);
+		}
+		public void OpenWebsite(string url){
+			Application.OpenURL(url);
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace Enemies
 {
 	public abstract class BaseEnemy : MonoBehaviour
 	{
-		protected GameObject referenceObject;
+		public GameObject[] powerUps;
 		public AudioClip hitOne;
 		public AudioClip hitTwo;
 
@@ -23,7 +23,6 @@ namespace Enemies
 
 		protected virtual void Awake()
 		{
-			referenceObject = Camera.main.gameObject;
 			gameObject.AddComponent<Distancedeleter>();
 		}
 
@@ -47,7 +46,7 @@ namespace Enemies
 
 		public virtual void OnTakeDamage( int value )
 		{
-			if(Random.Range(0f, 1f) < 0.5f)
+			if(Random.value < 0.5f)
 				Utils.Audio.AudioHelper.PlayClipAtPoint(hitOne, Vector3.zero, Utils.Audio.AudioHelper.EffectVolume);
 			else
 				Utils.Audio.AudioHelper.PlayClipAtPoint(hitTwo, Vector3.zero, Utils.Audio.AudioHelper.EffectVolume);
@@ -55,6 +54,12 @@ namespace Enemies
 			health -= value;
 			if( health <= 0 )
 				Kill ();
+		}
+		protected void DropPowerUp(){
+			if(Random.value < 0.5f)
+				Instantiate(powerUps[0], transform.position, Quaternion.identity);
+			else
+				Instantiate(powerUps[1], transform.position, Quaternion.identity);
 		}
 
 		public void Kill()
@@ -72,6 +77,9 @@ namespace Enemies
 
 			if (Random.value < 0.3f)// 30%
 				SoundEffectsPlayer.PlayRandomKill();
+
+			if(Random.value < 0.2f)
+				DropPowerUp();
 		}
 
 

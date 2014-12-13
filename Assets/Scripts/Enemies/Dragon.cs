@@ -33,7 +33,7 @@ namespace Enemies
 			base.Awake();
 			breathAudio = GetComponent<AudioSource>();
 			dragon = this;
-			health = 25;
+			health = 500;
 			timePenalty = 0.0f; //The dragon will never come in contact with the player.
 		}
 		public void Init()
