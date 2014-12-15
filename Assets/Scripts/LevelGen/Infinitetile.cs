@@ -40,4 +40,12 @@ public class Infinitetile : MonoBehaviour
 	{
 		timer = 0f;
 	}
+	private void OnApplicationQuit(){
+		area = 0;
+		subArea = 0;
+	}
+	private void OnDisable(){
+		area = 0;
+		subArea = 0;
+	}
 }
