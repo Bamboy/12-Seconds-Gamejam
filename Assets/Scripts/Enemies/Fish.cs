@@ -10,7 +10,7 @@ namespace Enemies
 			base.Awake ();
 			health = 3;
 			timePenalty = 4.0f;
-			timeBonus = 3.0f;
+			timeBonus = Random.Range(3.50f,4.50f);
 		}
 		
 		protected override void Update ()

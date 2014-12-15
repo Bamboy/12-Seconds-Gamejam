@@ -10,11 +10,13 @@ namespace Enemies
 			base.Awake ();
 			health = 3;
 			timePenalty = 5.75f;
-			timeBonus = 3.0f;
+			timeBonus = Random.Range(5.50f,6.75f);
 		}
 
+
+
 		protected override void Update ()
-		{
+		{	
 			transform.Translate(-2 * Time.deltaTime, 0, 0, Space.World);
 		}
 
