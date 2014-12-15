@@ -77,8 +77,8 @@ public class Shooting : CharacterInput
 			spawnPos[1].y = Main.player.transform.position.z + 0.25f;
 			GameObject proj1 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[0].x, 1.0f, spawnPos[0].y ), Quaternion.identity );
 			GameObject proj2 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[1].x, 1.0f, spawnPos[1].y ), Quaternion.identity );
-			Vector3 dir = new Vector3(-1f, 0, -.125f);
-			Vector3 rightDir = new Vector3(-1f, 0, .125f);
+			Vector3 dir = transform.forward + new Vector3(0, 0, -.125f);
+			Vector3 rightDir = transform.forward + new Vector3(0, 0, .125f);
 			proj1.GetComponent<Projectile>().direction = dir;
 			proj1.GetComponent<Projectile>().speed += PlyMovement.Speed;
 			proj2.GetComponent<Projectile>().direction = rightDir;
@@ -90,8 +90,8 @@ public class Shooting : CharacterInput
 			GameObject proj2 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[1].x, 1.0f, spawnPos[1].y ), Quaternion.identity );
 			GameObject proj3 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[2].x, 1.0f, spawnPos[2].y ), Quaternion.identity );
 			Vector3 dir = transform.forward;
-			Vector3 rightDir = new Vector3(-1, 0, -.125f);
-			Vector3 leftDir = new Vector3(-1, 0, .125f);;
+			Vector3 rightDir = transform.forward + new Vector3(0, 0, -.125f);
+			Vector3 leftDir = transform.forward + new Vector3(0, 0, .125f);;
 			proj1.GetComponent<Projectile>().direction = dir;
 			proj1.GetComponent<Projectile>().speed += PlyMovement.Speed;
 			proj2.GetComponent<Projectile>().direction = leftDir;
