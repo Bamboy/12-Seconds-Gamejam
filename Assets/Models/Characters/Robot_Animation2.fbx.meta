@@ -1,0 +1,1021 @@
+fileFormatVersion: 2
+guid: f538b39e53e003c48a6b43c6c355f3d6
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: babyrobo
+    100002: Cr_Gun
+    100004: Jt_Body
+    100006: Jt_Body2
+    100008: Jt_Core
+    100010: Jt_Crown
+    100012: Jt_Gun
+    100014: Jt_Head
+    100016: Jt_L_Elbow1
+    100018: Jt_L_Elbow2
+    100020: Jt_L_Finger1
+    100022: Jt_L_Finger2
+    100024: Jt_L_Finger3
+    100026: Jt_L_Leg1
+    100028: Jt_L_Leg2
+    100030: Jt_L_Leg3
+    100032: Jt_L_Palm
+    100034: Jt_L_Shoulder
+    100036: Jt_L_Wrist
+    100038: Jt_Neck
+    100040: Jt_Neck2
+    100042: Jt_R_Elbow1
+    100044: Jt_R_Elbow2
+    100046: Jt_R_Finger1
+    100048: Jt_R_Finger2
+    100050: Jt_R_Finger3
+    100052: Jt_R_Leg1
+    100054: Jt_R_Leg2
+    100056: Jt_R_Leg3
+    100058: Jt_R_Palm
+    100060: Jt_R_Shoulder
+    100062: Jt_R_Wrist
+    100064: pewpewp
+    100066: polySurface1
+    100068: polySurface2
+    100070: polySurface3
+    100072: polySurface4
+    100074: polySurface5
+    100076: polySurface6
+    100078: polySurface7
+    100080: //RootNode
+    100082: transform1
+    100084: transform2
+    100086: transform3
+    100088: transform4
+    100090: transform5
+    100092: transform6
+    100094: transform7
+    400000: babyrobo
+    400002: Cr_Gun
+    400004: Jt_Body
+    400006: Jt_Body2
+    400008: Jt_Core
+    400010: Jt_Crown
+    400012: Jt_Gun
+    400014: Jt_Head
+    400016: Jt_L_Elbow1
+    400018: Jt_L_Elbow2
+    400020: Jt_L_Finger1
+    400022: Jt_L_Finger2
+    400024: Jt_L_Finger3
+    400026: Jt_L_Leg1
+    400028: Jt_L_Leg2
+    400030: Jt_L_Leg3
+    400032: Jt_L_Palm
+    400034: Jt_L_Shoulder
+    400036: Jt_L_Wrist
+    400038: Jt_Neck
+    400040: Jt_Neck2
+    400042: Jt_R_Elbow1
+    400044: Jt_R_Elbow2
+    400046: Jt_R_Finger1
+    400048: Jt_R_Finger2
+    400050: Jt_R_Finger3
+    400052: Jt_R_Leg1
+    400054: Jt_R_Leg2
+    400056: Jt_R_Leg3
+    400058: Jt_R_Palm
+    400060: Jt_R_Shoulder
+    400062: Jt_R_Wrist
+    400064: pewpewp
+    400066: polySurface1
+    400068: polySurface2
+    400070: polySurface3
+    400072: polySurface4
+    400074: polySurface5
+    400076: polySurface6
+    400078: polySurface7
+    400080: //RootNode
+    400082: transform1
+    400084: transform2
+    400086: transform3
+    400088: transform4
+    400090: transform5
+    400092: transform6
+    400094: transform7
+    4300000: babyrobo
+    4300002: polySurface7
+    7400000: Idle
+    7400002: Slow Hover
+    7400004: Strafe Left
+    7400006: Strafe Right
+    7400008: Death
+    7400010: Fire
+    7400012: Fast Hover
+    9500000: //RootNode
+    13700000: babyrobo
+    13700002: polySurface7
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: Cr_Gun
+        weight: 1
+      - path: Jt_Core
+        weight: 1
+      - path: Jt_Core/Jt_Body
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head/Jt_Crown
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_Gun
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2/Jt_L_Leg3
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2/Jt_R_Leg3
+        weight: 1
+      - path: pewpewp
+        weight: 1
+      - path: pewpewp/polySurface1
+        weight: 1
+      - path: pewpewp/polySurface1/transform7
+        weight: 1
+      - path: pewpewp/polySurface2
+        weight: 1
+      - path: pewpewp/polySurface2/transform6
+        weight: 1
+      - path: pewpewp/polySurface3
+        weight: 1
+      - path: pewpewp/polySurface3/transform5
+        weight: 1
+      - path: pewpewp/polySurface4
+        weight: 1
+      - path: pewpewp/polySurface4/transform4
+        weight: 1
+      - path: pewpewp/polySurface5
+        weight: 1
+      - path: pewpewp/polySurface5/transform3
+        weight: 1
+      - path: pewpewp/polySurface6
+        weight: 1
+      - path: pewpewp/polySurface6/transform2
+        weight: 1
+      - path: pewpewp/transform1
+        weight: 1
+      - path: polySurface7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Slow Hover
+      takeName: Take 001
+      firstFrame: 28
+      lastFrame: 38
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: Cr_Gun
+        weight: 1
+      - path: Jt_Core
+        weight: 1
+      - path: Jt_Core/Jt_Body
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head/Jt_Crown
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_Gun
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2/Jt_L_Leg3
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2/Jt_R_Leg3
+        weight: 1
+      - path: pewpewp
+        weight: 1
+      - path: pewpewp/polySurface1
+        weight: 1
+      - path: pewpewp/polySurface1/transform7
+        weight: 1
+      - path: pewpewp/polySurface2
+        weight: 1
+      - path: pewpewp/polySurface2/transform6
+        weight: 1
+      - path: pewpewp/polySurface3
+        weight: 1
+      - path: pewpewp/polySurface3/transform5
+        weight: 1
+      - path: pewpewp/polySurface4
+        weight: 1
+      - path: pewpewp/polySurface4/transform4
+        weight: 1
+      - path: pewpewp/polySurface5
+        weight: 1
+      - path: pewpewp/polySurface5/transform3
+        weight: 1
+      - path: pewpewp/polySurface6
+        weight: 1
+      - path: pewpewp/polySurface6/transform2
+        weight: 1
+      - path: pewpewp/transform1
+        weight: 1
+      - path: polySurface7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Strafe Left
+      takeName: Take 001
+      firstFrame: 80
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: Cr_Gun
+        weight: 1
+      - path: Jt_Core
+        weight: 1
+      - path: Jt_Core/Jt_Body
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head/Jt_Crown
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_Gun
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2/Jt_L_Leg3
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2/Jt_R_Leg3
+        weight: 1
+      - path: pewpewp
+        weight: 1
+      - path: pewpewp/polySurface1
+        weight: 1
+      - path: pewpewp/polySurface1/transform7
+        weight: 1
+      - path: pewpewp/polySurface2
+        weight: 1
+      - path: pewpewp/polySurface2/transform6
+        weight: 1
+      - path: pewpewp/polySurface3
+        weight: 1
+      - path: pewpewp/polySurface3/transform5
+        weight: 1
+      - path: pewpewp/polySurface4
+        weight: 1
+      - path: pewpewp/polySurface4/transform4
+        weight: 1
+      - path: pewpewp/polySurface5
+        weight: 1
+      - path: pewpewp/polySurface5/transform3
+        weight: 1
+      - path: pewpewp/polySurface6
+        weight: 1
+      - path: pewpewp/polySurface6/transform2
+        weight: 1
+      - path: pewpewp/transform1
+        weight: 1
+      - path: polySurface7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Strafe Right
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: Cr_Gun
+        weight: 1
+      - path: Jt_Core
+        weight: 1
+      - path: Jt_Core/Jt_Body
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head/Jt_Crown
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_Gun
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2/Jt_L_Leg3
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2/Jt_R_Leg3
+        weight: 1
+      - path: pewpewp
+        weight: 1
+      - path: pewpewp/polySurface1
+        weight: 1
+      - path: pewpewp/polySurface1/transform7
+        weight: 1
+      - path: pewpewp/polySurface2
+        weight: 1
+      - path: pewpewp/polySurface2/transform6
+        weight: 1
+      - path: pewpewp/polySurface3
+        weight: 1
+      - path: pewpewp/polySurface3/transform5
+        weight: 1
+      - path: pewpewp/polySurface4
+        weight: 1
+      - path: pewpewp/polySurface4/transform4
+        weight: 1
+      - path: pewpewp/polySurface5
+        weight: 1
+      - path: pewpewp/polySurface5/transform3
+        weight: 1
+      - path: pewpewp/polySurface6
+        weight: 1
+      - path: pewpewp/polySurface6/transform2
+        weight: 1
+      - path: pewpewp/transform1
+        weight: 1
+      - path: polySurface7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Death
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: Cr_Gun
+        weight: 1
+      - path: Jt_Core
+        weight: 1
+      - path: Jt_Core/Jt_Body
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head/Jt_Crown
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_Gun
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2/Jt_L_Leg3
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2/Jt_R_Leg3
+        weight: 1
+      - path: pewpewp
+        weight: 1
+      - path: pewpewp/polySurface1
+        weight: 1
+      - path: pewpewp/polySurface1/transform7
+        weight: 1
+      - path: pewpewp/polySurface2
+        weight: 1
+      - path: pewpewp/polySurface2/transform6
+        weight: 1
+      - path: pewpewp/polySurface3
+        weight: 1
+      - path: pewpewp/polySurface3/transform5
+        weight: 1
+      - path: pewpewp/polySurface4
+        weight: 1
+      - path: pewpewp/polySurface4/transform4
+        weight: 1
+      - path: pewpewp/polySurface5
+        weight: 1
+      - path: pewpewp/polySurface5/transform3
+        weight: 1
+      - path: pewpewp/polySurface6
+        weight: 1
+      - path: pewpewp/polySurface6/transform2
+        weight: 1
+      - path: pewpewp/transform1
+        weight: 1
+      - path: polySurface7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fire
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: Cr_Gun
+        weight: 1
+      - path: Jt_Core
+        weight: 1
+      - path: Jt_Core/Jt_Body
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head/Jt_Crown
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_Gun
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2/Jt_L_Leg3
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2/Jt_R_Leg3
+        weight: 1
+      - path: pewpewp
+        weight: 1
+      - path: pewpewp/polySurface1
+        weight: 1
+      - path: pewpewp/polySurface1/transform7
+        weight: 1
+      - path: pewpewp/polySurface2
+        weight: 1
+      - path: pewpewp/polySurface2/transform6
+        weight: 1
+      - path: pewpewp/polySurface3
+        weight: 1
+      - path: pewpewp/polySurface3/transform5
+        weight: 1
+      - path: pewpewp/polySurface4
+        weight: 1
+      - path: pewpewp/polySurface4/transform4
+        weight: 1
+      - path: pewpewp/polySurface5
+        weight: 1
+      - path: pewpewp/polySurface5/transform3
+        weight: 1
+      - path: pewpewp/polySurface6
+        weight: 1
+      - path: pewpewp/polySurface6/transform2
+        weight: 1
+      - path: pewpewp/transform1
+        weight: 1
+      - path: polySurface7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fast Hover
+      takeName: Take 001
+      firstFrame: 48
+      lastFrame: 62
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: babyrobo
+        weight: 1
+      - path: Cr_Gun
+        weight: 1
+      - path: Jt_Core
+        weight: 1
+      - path: Jt_Core/Jt_Body
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_L_Shoulder/Jt_L_Elbow1/Jt_L_Elbow2/Jt_L_Wrist/Jt_L_Palm/Jt_L_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_Neck/Jt_Neck2/Jt_Head/Jt_Crown
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_Gun
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger1
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger2
+        weight: 1
+      - path: Jt_Core/Jt_Body/Jt_Body2/Jt_R_Shoulder/Jt_R_Elbow1/Jt_R_Elbow2/Jt_R_Wrist/Jt_R_Palm/Jt_R_Finger3
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_L_Leg1/Jt_L_Leg2/Jt_L_Leg3
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2
+        weight: 1
+      - path: Jt_Core/Jt_R_Leg1/Jt_R_Leg2/Jt_R_Leg3
+        weight: 1
+      - path: pewpewp
+        weight: 1
+      - path: pewpewp/polySurface1
+        weight: 1
+      - path: pewpewp/polySurface1/transform7
+        weight: 1
+      - path: pewpewp/polySurface2
+        weight: 1
+      - path: pewpewp/polySurface2/transform6
+        weight: 1
+      - path: pewpewp/polySurface3
+        weight: 1
+      - path: pewpewp/polySurface3/transform5
+        weight: 1
+      - path: pewpewp/polySurface4
+        weight: 1
+      - path: pewpewp/polySurface4/transform4
+        weight: 1
+      - path: pewpewp/polySurface5
+        weight: 1
+      - path: pewpewp/polySurface5/transform3
+        weight: 1
+      - path: pewpewp/polySurface6
+        weight: 1
+      - path: pewpewp/polySurface6/transform2
+        weight: 1
+      - path: pewpewp/transform1
+        weight: 1
+      - path: polySurface7
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .129999995
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

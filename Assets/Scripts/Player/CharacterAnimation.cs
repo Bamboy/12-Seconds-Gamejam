@@ -8,6 +8,7 @@ public class CharacterAnimation : CharacterInput {
 
 	void Start () {
 		anim = GetComponent<Animator>();
+		anim.SetBool("IsDead", false);
 	}
 	void Update () {
 		RaycastHit hit;
@@ -25,7 +26,7 @@ public class CharacterAnimation : CharacterInput {
 			Invoke("SetAnimBoolFalse", 0.833f);
 		}
 
-		if(BaseTimer.instance.current < 0)
+		if(!Main.playerAlive)
 			anim.SetBool("IsDead", true);
 
 		if(PlyMovement.RightAnim){
