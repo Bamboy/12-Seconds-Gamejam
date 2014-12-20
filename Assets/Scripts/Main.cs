@@ -14,12 +14,18 @@ public class Main : MonoBehaviour
 
 	private void Awake()
 	{
+		Time.timeScale = 1.0f;
 		if(Application.loadedLevel == 1){
 			if(PlayerPrefs.HasKey("masterVolume")){
 				UI.SliderFunctions.instance.volumeSliders[0].value = PlayerPrefs.GetFloat("masterVolume");
 				UI.SliderFunctions.instance.volumeSliders[1].value = PlayerPrefs.GetFloat("musicVolume");
 				UI.SliderFunctions.instance.volumeSliders[2].value = PlayerPrefs.GetFloat("effectVolume");
 				UI.SliderFunctions.instance.volumeSliders[3].value = PlayerPrefs.GetFloat("voiceVolume");
+			} else {
+				AudioHelper.MasterVolume = 1f;
+				AudioHelper.MusicVolume = 1f;
+				AudioHelper.EffectVolume = 1f;
+				AudioHelper.VoiceVolume = 1f;
 			}
 			AudioHelper.MasterVolume = UI.SliderFunctions.instance._masterVolume;
 			AudioHelper.MusicVolume = UI.SliderFunctions.instance._musicVolume;

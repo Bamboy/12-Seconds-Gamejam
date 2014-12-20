@@ -50,6 +50,6 @@ public class PauseMenu : MonoBehaviour {
 		}
 	}
 	private void OnApplicationPause(bool pauseStatus){
-		isPaused = pauseStatus;
+		isPaused = true;
 	}
 }
