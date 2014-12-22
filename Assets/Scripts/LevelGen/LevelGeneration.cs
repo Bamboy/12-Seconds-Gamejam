@@ -68,7 +68,7 @@ public class LevelGeneration : MonoBehaviour {
 		counters[number] -= Time.deltaTime;
 		if(counters[number] <= 0)
 		{
-			if( Infinitetile.area != 3 || (Infinitetile.area == 3 && doRocks == true) )
+			if( Infinitetile.Area != 3 || (Infinitetile.Area == 3 && doRocks == true) )
 			{
 				SpawnAsset( number );
 			}
@@ -77,7 +77,7 @@ public class LevelGeneration : MonoBehaviour {
 	}
 	void SpawnAsset( int number )
 	{
-		GameObject prefab = ExtRandom<GameObject>.WeightedChoice( prefabs, weights, Infinitetile.area );
+		GameObject prefab = ExtRandom<GameObject>.WeightedChoice( prefabs, weights, Infinitetile.Area );
 		
 		Vector3 pos = new Vector3(PlyMovement.trans.position.x + spawnOffset,0,number * PlyMovement.laneWidth);
 		Instantiate(prefab, pos, prefab.transform.rotation);

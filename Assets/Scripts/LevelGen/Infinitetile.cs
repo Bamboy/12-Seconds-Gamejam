@@ -9,8 +9,8 @@ public class Infinitetile : MonoBehaviour
 	private static float timer = 0.75f;
 	public int tileAreaTransitionCount;
 
-	public static int area = 0; //Used by other scripts to know what to spawn. (See LevelGeneration.cs)
-	public static int subArea = 0;
+	private static int area = 0; //Used by other scripts to know what to spawn. (See LevelGeneration.cs)
+	private static int subArea = 0;
 	// Use this for initialization
 	void Start () {
 		position = new Vector3(500, -0.07385421f, 5.0f);
@@ -47,5 +47,15 @@ public class Infinitetile : MonoBehaviour
 	private void OnDisable(){
 		area = 0;
 		subArea = 0;
+	}
+
+	public static int Area
+	{
+		get { return area; }
+		set {
+			area = value;
+			BaseTimer.instance.OnAreaChange(area);
+			Debug.Log("Area changed (" + area + ")");
+		}
 	}
 }

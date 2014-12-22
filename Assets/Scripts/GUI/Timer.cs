@@ -23,7 +23,7 @@ public class Timer : BaseTimer
 	}
 	private void OnGUI()
 	{
-		GUI.DrawTexture( new Rect(Screen.width - 150, Screen.height - 105f, 150, 125), (Main.playerAlive ? bg : bg_death) );
+		GUI.DrawTexture( new Rect(Screen.width - 150, Screen.height - 105f, 150, 125), (Main.PlayerAlive ? bg : bg_death) );
 		GUIStyle guiStyle = new GUIStyle();
 		guiStyle.alignment = TextAnchor.MiddleCenter;
 		guiStyle.fontSize = 50;
@@ -32,14 +32,13 @@ public class Timer : BaseTimer
 
 	protected override void OnTimeAdded( float addition )
 	{
-		base.OnTimeAdded( addition );
+		Debug.Log("TimeAdded (" + addition + ")");
 	}
 	protected override void OnTimeRemoved( float subtraction )
 	{
-		base.OnTimeRemoved( subtraction );
-		Debug.Log("TimeRemoved");
+		Debug.Log("TimeRemoved (" + subtraction + ")");
 
-		if( Main.playerAlive )
+		if( Main.PlayerAlive )
 			StartCoroutine("Blink_TimeReduced");
 	}
 
@@ -62,7 +61,7 @@ public class Timer : BaseTimer
 	{
 		if( BaseTimer.instance.current > warningThreshold )
 		{
-			if((bg == bg_warning && damageBlinking == false) || (bg == bg_death && Main.playerAlive == true)) //This is here so the gui doesnt get stuck on red after we go above the threshold.
+			if((bg == bg_warning && damageBlinking == false) || (bg == bg_death && Main.PlayerAlive == true)) //This is here so the gui doesnt get stuck on red after we go above the threshold.
 				bg = bg_normal;
 
 			yield return null;
@@ -83,7 +82,7 @@ public class Timer : BaseTimer
 			}
 			else
 			{
-				if( bg == bg_warning || (bg == bg_death && Main.playerAlive == true) )
+				if( bg == bg_warning || (bg == bg_death && Main.PlayerAlive == true) )
 					bg = bg_normal;
 				else
 					bg = bg_warning;

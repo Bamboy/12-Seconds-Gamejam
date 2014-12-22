@@ -8,6 +8,8 @@ public abstract class BaseTimer : MonoBehaviour
 	private float _time;
 	private float timeModifier;
 	public float current;
+	private float timePerSecond = 1;
+	private float timePerSecondModifier = 0;
 
 	public void Init(float time)
 	{
@@ -19,18 +21,23 @@ public abstract class BaseTimer : MonoBehaviour
 
 	private void Update()
 	{
-		if(Main.playerAlive)
-			current = Infinitetile.area == 1 ? (_time - (Time.timeSinceLevelLoad * 2) - start + timeModifier) : _time - Time.timeSinceLevelLoad - start + timeModifier;
+		if (Main.PlayerAlive)
+		{
+			float prevCurrent = current - timePerSecondModifier;
+			current = _time - Time.timeSinceLevelLoad - start + timeModifier;
+			timePerSecondModifier -= (prevCurrent - current) * (timePerSecond - 1);
+			current += timePerSecondModifier;
+		}
 
 		if (current < 0)
 		{
 			//We died.
-			Main.playerAlive = false;
+			Main.PlayerAlive = false;
 			OnEnd(true);
 		} 
 		else
 		{
-			Main.playerAlive = true;
+			Main.PlayerAlive = true;
 			OnEnd(false);
 		}
 	}
@@ -59,13 +66,21 @@ public abstract class BaseTimer : MonoBehaviour
 		}
 	}
 
-	protected virtual void OnTimeAdded( float addition )
+	public float TimePerSecond
 	{
-
+		get { return timePerSecond; }
+		set { timePerSecond = value; }
 	}
-	protected virtual void OnTimeRemoved( float subtraction )
-	{
 
+	protected abstract void OnTimeAdded( float addition );
+	protected abstract void OnTimeRemoved( float subtraction );
+
+	public virtual void OnAreaChange(int area)
+	{
+		if (area == 1)
+			TimePerSecond = 2;
+		else
+			TimePerSecond = 1;
 	}
 
 

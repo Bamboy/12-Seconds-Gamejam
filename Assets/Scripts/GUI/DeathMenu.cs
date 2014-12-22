@@ -13,7 +13,7 @@ public class DeathMenu : MonoBehaviour {
 		timer = 1.042f;
 	}
 	private void Update(){
-		if(!Main.playerAlive){
+		if(!Main.PlayerAlive){
 			timer -= Time.deltaTime;
 			if(timer <= 0f){
 				Time.timeScale = 0.0f;
@@ -27,7 +27,7 @@ public class DeathMenu : MonoBehaviour {
 		Scale.z = 1;
 		GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Scale);
 		GUI.skin = skin;
-		if(!Main.playerAlive){
+		if(!Main.PlayerAlive){
 			if(timer <= 0){
 				GUI.DrawTexture(new Rect(0, 0, Width, Height), lose);
 				if(GUI.Button(new Rect((Width/2) - 120, (Height/2) + 70, 240, 65), "")){

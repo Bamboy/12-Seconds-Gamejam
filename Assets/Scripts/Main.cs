@@ -1,19 +1,24 @@
 ﻿using UnityEngine;
 using Utils.Audio;
 using UnityEngine.UI;
+using Enemies;
 
 //By Cristian "vozochris" Vozoca
 public class Main : MonoBehaviour
 {
+	public static Main instance;
+
 	public static Transform player;
 
 	public static MusicPlayer musicPlayer;
 	public static SoundEffectsPlayer soundEffectsPlayer;
 
-	public static bool playerAlive = true;
+	private bool playerAlive = true;
 
 	private void Awake()
 	{
+		instance = this;
+
 		Time.timeScale = 1.0f;
 		if(Application.loadedLevel == 1){
 			if(PlayerPrefs.HasKey("masterVolume")){
@@ -41,11 +46,12 @@ public class Main : MonoBehaviour
 
 	public static bool OnWin()
 	{
-		if(Enemies.Dragon.dragon.Health <= 0){
-			return true;
-		} else {
+		if (Dragon.dragon == null)
 			return false;
-		}
+		if (Dragon.dragon.Health > 0)
+			return false;
+
+		return true;
 	}
 	private void OnDisable(){
 		PlayerPrefs.SetFloat("masterVolume", AudioHelper.MasterVolume);
@@ -58,5 +64,11 @@ public class Main : MonoBehaviour
 		PlayerPrefs.SetFloat("musicVolume", AudioHelper.MusicVolume);
 		PlayerPrefs.SetFloat("effectVolume", AudioHelper.EffectVolume);
 		PlayerPrefs.SetFloat("voiceVolume", AudioHelper.VoiceVolume);
+	}
+
+	public static bool PlayerAlive
+	{
+		get { return instance.playerAlive; }
+		set { instance.playerAlive = value; }
 	}
 }

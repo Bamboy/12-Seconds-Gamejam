@@ -26,7 +26,7 @@ public class CharacterAnimation : CharacterInput {
 			Invoke("SetAnimBoolFalse", 0.833f);
 		}
 
-		if(!Main.playerAlive)
+		if(!Main.PlayerAlive)
 			anim.SetBool("IsDead", true);
 
 		if(PlyMovement.RightAnim){

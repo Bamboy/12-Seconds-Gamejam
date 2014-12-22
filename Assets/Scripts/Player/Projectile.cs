@@ -18,13 +18,13 @@ public class Projectile : MonoBehaviour
 		rigidbody.AddForce( direction * speed, ForceMode.Impulse );
 		referenceObject = GetComponentInChildren<ParticleSystem>();
 		projectileOriginal = referenceObject.startColor;
-		if(Infinitetile.area == 0){
+		if(Infinitetile.Area == 0){
 			referenceObject.startColor = projectileOriginal;
-		} else if(Infinitetile.area == 1){
+		} else if(Infinitetile.Area == 1){
 			referenceObject.startColor = Color.red;
-		} else if(Infinitetile.area == 2){
+		} else if(Infinitetile.Area == 2){
 			referenceObject.startColor = projectileOriginal;
-		} else if(Infinitetile.area == 3){
+		} else if(Infinitetile.Area == 3){
 			referenceObject.startColor = Color.green;
 		}
 	}
@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
 			enemy.OnTakeDamage( 1 );
 		}
 
-		if(Infinitetile.area == 3 || Infinitetile.area == 1){
+		if(Infinitetile.Area == 3 || Infinitetile.Area == 1){
 			newDirection = new Vector3(-1f, 0f, Random.Range(-1f, 1f));
 			rigidbody.AddForce(newDirection * speed, ForceMode.Impulse);
 			Destroy(gameObject, 5f);

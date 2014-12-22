@@ -72,7 +72,7 @@ public class Shooting : CharacterInput
 		spawnPos[0] = VectorExtras.OffsetPosInDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(transform.forward.x, transform.forward.z), 0.6f );
 		spawnPos[1] = VectorExtras.OffsetPosInDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(transform.forward.x, transform.forward.z), 0.6f );
 		spawnPos[2] = VectorExtras.OffsetPosInDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(transform.forward.x, transform.forward.z), 0.6f );
-		if(Infinitetile.area == 2){
+		if(Infinitetile.Area == 2){
 			spawnPos[0].y = Main.player.transform.position.z - 0.25f;
 			spawnPos[1].y = Main.player.transform.position.z + 0.25f;
 			GameObject proj1 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[0].x, 1.0f, spawnPos[0].y ), Quaternion.identity );
@@ -83,7 +83,7 @@ public class Shooting : CharacterInput
 			proj1.GetComponent<Projectile>().speed += PlyMovement.Speed;
 			proj2.GetComponent<Projectile>().direction = rightDir;
 			proj2.GetComponent<Projectile>().speed += PlyMovement.Speed;
-		} else if(Infinitetile.area == 3){
+		} else if(Infinitetile.Area == 3){
 			spawnPos[1].y = Main.player.transform.position.z + 0.75f;
 			spawnPos[2].y = Main.player.transform.position.z - 0.75f;
 			GameObject proj1 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[0].x, 1.0f, spawnPos[0].y ), Quaternion.identity );

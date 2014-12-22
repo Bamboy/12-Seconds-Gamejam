@@ -13,6 +13,12 @@ namespace Excelsion.UI{
 		public GameObject winMenu;
 		public GameObject loseMenu;
 
+		private void Awake()
+		{
+			if (Application.loadedLevel == 1)
+				enabled = false;
+		}
+
 		private void Update(){
 			if(Main.OnWin() && !_continue){
 				winMenu.SetActive(true);
@@ -21,7 +27,7 @@ namespace Excelsion.UI{
 				Time.timeScale = 1f;
 				winMenu.SetActive(false);
 			}
-			if(!Main.playerAlive){
+			if(!Main.PlayerAlive){
 				loseMenu.SetActive(true);
 				Time.timeScale = 0f;
 			} else {

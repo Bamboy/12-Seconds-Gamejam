@@ -22,18 +22,18 @@ namespace Utils
 
 		private void Update()
 		{
-			if(Main.playerAlive)
+			if(Main.PlayerAlive)
 				current = time - Time.timeSinceLevelLoad - start + timeModifier;
 
 			if (current < 0)
 			{
 				//We died.
-				Main.playerAlive = false;
+				Main.PlayerAlive = false;
 				OnEnd(true);
 			} 
 			else
 			{
-				Main.playerAlive = true;
+				Main.PlayerAlive = true;
 				OnEnd(false);
 			}
 		}
