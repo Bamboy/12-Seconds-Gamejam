@@ -26,17 +26,20 @@ public class Timer : BaseTimer
 		GUI.DrawTexture( new Rect(Screen.width - 150, Screen.height - 105f, 150, 125), (Main.PlayerAlive ? bg : bg_death) );
 		GUIStyle guiStyle = new GUIStyle();
 		guiStyle.alignment = TextAnchor.MiddleCenter;
-		guiStyle.fontSize = 50;
-		GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), ((int)current).ToString(), guiStyle);
+
+		string secText = VectorExtras.RoundTo( current, 0.01f ).ToString( "f2" );
+		guiStyle.fontSize = 175 / (secText.Length - 1);
+		GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), secText, guiStyle);
 	}
+	
 
 	protected override void OnTimeAdded( float addition )
 	{
-		Debug.Log("TimeAdded (" + addition + ")");
+		//Debug.Log("TimeAdded (" + addition + ")");
 	}
 	protected override void OnTimeRemoved( float subtraction )
 	{
-		Debug.Log("TimeRemoved (" + subtraction + ")");
+		//Debug.Log("TimeRemoved (" + subtraction + ")");
 
 		if( Main.PlayerAlive )
 			StartCoroutine("Blink_TimeReduced");

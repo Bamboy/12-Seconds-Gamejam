@@ -13,8 +13,8 @@ public class PlyMovement : CharacterInput
 	public static bool LeftAnim;
 	public float inspectorSpeed = 6.5f;
 
-	public static int laneNumber;
-	private int lastLaneNumber;
+	public static int laneNumber = 2;
+	private int lastLaneNumber = 2;
 	private float time;
 	
 	public bool drawLanes = true;
@@ -29,8 +29,8 @@ public class PlyMovement : CharacterInput
 	{
 		trans = this.transform;
 		time = 1.0f;
-		lastLaneNumber = 0;
-		laneNumber = 0;
+		lastLaneNumber = 2;
+		laneNumber = 2;
 		speedMultiplier = 1.0f;
 		speed = inspectorSpeed;
 	}

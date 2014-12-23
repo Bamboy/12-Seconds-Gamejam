@@ -3,8 +3,15 @@ using System.Collections;
 
 public class Shooting : CharacterInput 
 {
+	private static Shooting instance;
+	public static Shooting Instance{
+		get{ return instance; }
+	}
+
+	public static int shootMode = 0;
+
 	public static GameObject projectile;
-	private static float delay = 0.45f;
+	private static float delay = 0.5f;
 	private bool countdown;
 	private float timer;
 
@@ -20,14 +27,51 @@ public class Shooting : CharacterInput
 		set{ delay = value; delay = Mathf.Clamp( delay, 0.075f, 1.5f ); }
 	}
 
+	public void ShootMode( int mode, float time )
+	{
+		SetMode(mode);
+		StartCoroutine( EndShootMode(time) );
+	}
+	IEnumerator EndShootMode( float time )
+	{
+		yield return new WaitForSeconds( time );
+		SetMode(0);
+	}
+
+	void SetMode( int mode )
+	{
+		shootMode = mode;
+		switch( mode )
+		{
+		case 1:
+			Delay = 0.35f;
+			break;
+		case 2:
+			Delay = 0.2f;
+			break;
+		default:
+			Delay = 0.5f;
+			shootMode = 0;
+			break;
+		}
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
+		instance = this;
 		projectile = Resources.Load("Prefabs/Bullets/BaseProjectile") as GameObject;
 		timer = delay;
 		baseRotation = transform.rotation;
 		LookAtTarget( transform.position + new Vector3( -10, 0, 0 ) );
 	}
+	void OnApplicationExit(){
+		SetMode (0);
+	}
+	void OnLevelWasLoaded( int val ){
+		SetMode (0);
+	}
+
 	
 	// Update is called once per frame
 	void Update () 
@@ -72,26 +116,26 @@ public class Shooting : CharacterInput
 		spawnPos[0] = VectorExtras.OffsetPosInDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(transform.forward.x, transform.forward.z), 0.6f );
 		spawnPos[1] = VectorExtras.OffsetPosInDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(transform.forward.x, transform.forward.z), 0.6f );
 		spawnPos[2] = VectorExtras.OffsetPosInDirection( new Vector2(transform.position.x, transform.position.z), new Vector2(transform.forward.x, transform.forward.z), 0.6f );
-		if(Infinitetile.Area == 2){
+		if(shootMode == 1){
 			spawnPos[0].y = Main.player.transform.position.z - 0.25f;
 			spawnPos[1].y = Main.player.transform.position.z + 0.25f;
 			GameObject proj1 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[0].x, 1.0f, spawnPos[0].y ), Quaternion.identity );
 			GameObject proj2 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[1].x, 1.0f, spawnPos[1].y ), Quaternion.identity );
-			Vector3 dir = transform.forward + new Vector3(0, 0, -.125f);
-			Vector3 rightDir = transform.forward + new Vector3(0, 0, .125f);
+			Vector3 dir = transform.forward + new Vector3(0, 0, -0.125f);
+			Vector3 rightDir = transform.forward + new Vector3(0, 0, 0.125f);
 			proj1.GetComponent<Projectile>().direction = dir;
 			proj1.GetComponent<Projectile>().speed += PlyMovement.Speed;
 			proj2.GetComponent<Projectile>().direction = rightDir;
 			proj2.GetComponent<Projectile>().speed += PlyMovement.Speed;
-		} else if(Infinitetile.Area == 3){
+		} else if(shootMode == 2){
 			spawnPos[1].y = Main.player.transform.position.z + 0.75f;
 			spawnPos[2].y = Main.player.transform.position.z - 0.75f;
 			GameObject proj1 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[0].x, 1.0f, spawnPos[0].y ), Quaternion.identity );
 			GameObject proj2 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[1].x, 1.0f, spawnPos[1].y ), Quaternion.identity );
 			GameObject proj3 = (GameObject)Instantiate( projectile, new Vector3( spawnPos[2].x, 1.0f, spawnPos[2].y ), Quaternion.identity );
 			Vector3 dir = transform.forward;
-			Vector3 rightDir = transform.forward + new Vector3(0, 0, -.125f);
-			Vector3 leftDir = transform.forward + new Vector3(0, 0, .125f);;
+			Vector3 rightDir = transform.forward + new Vector3(0, 0, -0.125f);
+			Vector3 leftDir = transform.forward + new Vector3(0, 0, 0.125f);;
 			proj1.GetComponent<Projectile>().direction = dir;
 			proj1.GetComponent<Projectile>().speed += PlyMovement.Speed;
 			proj2.GetComponent<Projectile>().direction = leftDir;

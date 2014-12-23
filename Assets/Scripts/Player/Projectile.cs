@@ -28,9 +28,7 @@ public class Projectile : MonoBehaviour
 			referenceObject.startColor = Color.green;
 		}
 	}
-	void Update(){
 
-	}
 	void OnTriggerEnter(Collider col)
 	{
 		BaseEnemy enemy = col.GetComponent< BaseEnemy >();
@@ -39,12 +37,16 @@ public class Projectile : MonoBehaviour
 			enemy.OnTakeDamage( 1 );
 		}
 
-		if(Infinitetile.Area == 3 || Infinitetile.Area == 1){
-			newDirection = new Vector3(-1f, 0f, Random.Range(-1f, 1f));
-			rigidbody.AddForce(newDirection * speed, ForceMode.Impulse);
-			Destroy(gameObject, 5f);
-		} else {
-			Destroy(gameObject);
+		if( !(enemy is Wave) ) //Ingore waves.
+		{
+			if(Infinitetile.Area == 3 || Infinitetile.Area == 1)
+			{
+				newDirection = new Vector3(-1f, 0f, Random.Range(-1f, 1f));
+				rigidbody.AddForce(newDirection * speed, ForceMode.Impulse);
+				Destroy(gameObject, 5f);
+			} else {
+				Destroy(gameObject);
+			}
 		}
 	}
 }

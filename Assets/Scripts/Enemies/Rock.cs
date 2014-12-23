@@ -13,6 +13,7 @@ namespace Enemies
 		protected override void Awake() 
 		{
 			base.Awake ();
+			enemyType = "rock";
 			health = 4;
 			timePenalty = 10.0f;
 			timeBonus = 2.0f;

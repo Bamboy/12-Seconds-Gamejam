@@ -9,7 +9,6 @@ namespace Enemies
 {
 	public abstract class BaseEnemy : MonoBehaviour
 	{
-		public GameObject[] powerUps;
 		public AudioClip hitOne;
 		public AudioClip hitTwo;
 
@@ -17,6 +16,7 @@ namespace Enemies
 		protected float timeBonus;
 		protected float timePenalty;
 		protected int health;
+		protected string enemyType;
 
 		public static GameObject splatPrefab;
 		public static GameObject textPrefab;
@@ -55,12 +55,7 @@ namespace Enemies
 			if( health <= 0 )
 				Kill ();
 		}
-		protected void DropPowerUp(){
-			if(Random.value < 0.5f)
-				Instantiate(powerUps[0], transform.position, Quaternion.identity);
-			else
-				Instantiate(powerUps[1], transform.position, Quaternion.identity);
-		}
+
 
 		public void Kill()
 		{
@@ -78,13 +73,10 @@ namespace Enemies
 			if (Random.value < 0.3f)// 30%
 				SoundEffectsPlayer.PlayRandomKill();
 
-			if(Random.value < 0.2f)
+			if(Random.value < 0.25f)
 				DropPowerUp();
 		}
-
-
-
-
+		
 		protected void CreateSplatter()
 		{
 			if( splatPrefab == null )
@@ -113,7 +105,13 @@ namespace Enemies
 		}
 
 
+		
+		protected void DropPowerUp()
+		{
+			GameObject powerup = PickupDropper.instance.GetPickupDrop( this.enemyType );
 
+			Instantiate(powerup, transform.position, Quaternion.identity);
+		}
 
 
 

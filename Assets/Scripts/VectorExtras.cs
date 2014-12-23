@@ -3,7 +3,7 @@ using System.Collections;
 
 ///////////////////////////////////
 /// By: Stephan "Bamboy" Ennen ////
-/// Last Updated: 11/20/14     ////
+/// Last Updated: 12/23/14     ////
 ///////////////////////////////////
 
 //This script just holds general functions we might want to use in our other scripts.
@@ -57,7 +57,22 @@ public class VectorExtras : System.Object
 		else
 			return 0.0f;
 	}
-	
+
+	//Gets the number of digits in the number.
+	public static int GetIntLength( int val )
+	{
+		return val.ToString().Length;
+	}
+	//We subtract one so we dont count the decimal place.
+	public static float GetFloatLength( float val )
+	{
+		return val.ToString().Length - 1;
+	}
+
+	//===========================================
+	//=========== Vectors =======================
+	//===========================================
+
 	//Switch between types of vectors.
 	public static Vector3 V3FromV2( Vector2 V2, float val )
 	{

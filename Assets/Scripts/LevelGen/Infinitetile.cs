@@ -40,11 +40,23 @@ public class Infinitetile : MonoBehaviour
 	{
 		timer = 0f;
 	}
+	public static void NextArea()
+	{
+		if( area != 3 )
+		{
+			area++;
+			subArea = 0;
+		}
+	}
 	private void OnApplicationQuit(){
-		area = 0;
-		subArea = 0;
+		ResetStatics();
 	}
 	private void OnDisable(){
+		ResetStatics();
+	}
+	private void ResetStatics()
+	{
+		timer = 3.0f;
 		area = 0;
 		subArea = 0;
 	}

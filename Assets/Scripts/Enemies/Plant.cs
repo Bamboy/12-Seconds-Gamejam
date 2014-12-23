@@ -10,6 +10,7 @@ namespace Enemies
 		protected override void Awake ()
 		{
 			base.Awake ();
+			enemyType = "plant";
 			health = 4;
 			timePenalty = 7.0f;
 			timeBonus = 5.0f;

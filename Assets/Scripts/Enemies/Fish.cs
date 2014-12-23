@@ -8,6 +8,7 @@ namespace Enemies
 		protected override void Awake ()
 		{
 			base.Awake ();
+			enemyType = "fish";
 			health = 3;
 			timePenalty = 4.0f;
 			timeBonus = Random.Range(3.50f,4.50f);

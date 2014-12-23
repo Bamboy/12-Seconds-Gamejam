@@ -3,13 +3,12 @@ using System.Collections;
 
 namespace Excelsion.Pickups
 {
-	public class FireRatePickup : PickupBehaviour
+	public class ShootType2Pickup : PickupBehaviour 
 	{
-		public float delayAddition = -0.1f;
-		
+		public float duration = 5.0f;
 		protected override void OnPickup()
 		{
-			Shooting.Delay += delayAddition;
+			Shooting.Instance.ShootMode( 2, duration );
 		}
 	}
 }
