@@ -7,6 +7,8 @@ namespace Excelsion.UI{
 		private bool creditsEnable;
 		private bool optionsEnable;
 		private bool _continue;
+		private bool hasWon;
+		private bool paused;
 		public GameObject credits;
 		public GameObject options;
 		public GameObject pauseMenu;
@@ -20,10 +22,12 @@ namespace Excelsion.UI{
 		}
 
 		private void Update(){
-			if(Main.OnWin() && !_continue){
+			if(Main.OnWin())
+				hasWon = true;
+			if(hasWon && !_continue){
 				winMenu.SetActive(true);
 				Time.timeScale = 0f;
-			} else if(Main.OnWin() && _continue){
+			} else if(hasWon && _continue){
 				Time.timeScale = 1f;
 				winMenu.SetActive(false);
 			}
@@ -33,6 +37,11 @@ namespace Excelsion.UI{
 			} else {
 				loseMenu.SetActive(false);
 				Time.timeScale = 1f;
+			}
+			if(paused){
+				Time.timeScale = 0.0f;
+			} else {
+				Time.timeScale = 1.0f;
 			}
 		}
 		public void Exit(){
@@ -62,14 +71,14 @@ namespace Excelsion.UI{
 		public void PauseButton(){
 			pauseMenu.SetActive(true);
 			MusicPlayer.Paused = true;
-			Time.timeScale = 0.0f;
+			paused = true;
 		}
 		public void Resume(){
 			if(Main.OnWin())
 				_continue = true;
-			pauseMenu.SetActive(true);
+			pauseMenu.SetActive(false);
 			MusicPlayer.Paused = true;
-			Time.timeScale = 1.0f;
+			paused = false;
 		}
 		public void Restart(){
 			Application.LoadLevel(Application.loadedLevel);

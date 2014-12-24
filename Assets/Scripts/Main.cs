@@ -21,7 +21,7 @@ public class Main : MonoBehaviour
 
 		Time.timeScale = 1.0f;
 		if(Application.loadedLevel == 1){
-			if(PlayerPrefs.HasKey("masterVolume")){
+			if(PlayerPrefs.HasKey("firstStart")){
 				UI.SliderFunctions.instance.volumeSliders[0].value = PlayerPrefs.GetFloat("masterVolume");
 				UI.SliderFunctions.instance.volumeSliders[1].value = PlayerPrefs.GetFloat("musicVolume");
 				UI.SliderFunctions.instance.volumeSliders[2].value = PlayerPrefs.GetFloat("effectVolume");
@@ -58,12 +58,14 @@ public class Main : MonoBehaviour
 		PlayerPrefs.SetFloat("musicVolume", AudioHelper.MusicVolume);
 		PlayerPrefs.SetFloat("effectVolume", AudioHelper.EffectVolume);
 		PlayerPrefs.SetFloat("voiceVolume", AudioHelper.VoiceVolume);
+		PlayerPrefs.SetString("firstStart", "false");
 	}
 	private void OnApplicationQuit(){
 		PlayerPrefs.SetFloat("masterVolume", AudioHelper.MasterVolume);
 		PlayerPrefs.SetFloat("musicVolume", AudioHelper.MusicVolume);
 		PlayerPrefs.SetFloat("effectVolume", AudioHelper.EffectVolume);
 		PlayerPrefs.SetFloat("voiceVolume", AudioHelper.VoiceVolume);
+		PlayerPrefs.SetString("firstStart", "false");
 	}
 
 	public static bool PlayerAlive
