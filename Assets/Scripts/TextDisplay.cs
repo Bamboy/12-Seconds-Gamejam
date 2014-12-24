@@ -6,6 +6,14 @@ public class TextDisplay : MonoBehaviour
 	public TextMesh fg;
 	public TextMesh bg;
 	public float riseSpeed = 1.0f;
+	public string startText;
+	public Color startColor = Color.white;
+
+	void Start()
+	{
+		if( startText != null )
+			Display( startText, startColor );
+	}
 
 	public void Display( string text, Color color )
 	{

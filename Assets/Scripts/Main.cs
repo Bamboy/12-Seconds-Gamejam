@@ -37,7 +37,7 @@ public class Main : MonoBehaviour
 			AudioHelper.EffectVolume = UI.SliderFunctions.instance._effectVolume;
 			AudioHelper.VoiceVolume = UI.SliderFunctions.instance._voiceVolume;
 		}
-		if(Application.loadedLevel == 2){
+		if(Application.loadedLevel == 3){
 			player = GameObject.FindGameObjectWithTag("Player").transform;
 			musicPlayer = gameObject.AddComponent<MusicPlayer>();
 			soundEffectsPlayer = gameObject.AddComponent<SoundEffectsPlayer>();
