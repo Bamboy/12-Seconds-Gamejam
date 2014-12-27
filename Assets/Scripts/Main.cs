@@ -20,7 +20,7 @@ public class Main : MonoBehaviour
 		instance = this;
 
 		Time.timeScale = 1.0f;
-		if(Application.loadedLevel == 1){
+		if(Application.loadedLevel == 1 || Application.loadedLevel == 2){
 			if(PlayerPrefs.HasKey("firstStart")){
 				UI.SliderFunctions.instance.volumeSliders[0].value = PlayerPrefs.GetFloat("masterVolume");
 				UI.SliderFunctions.instance.volumeSliders[1].value = PlayerPrefs.GetFloat("musicVolume");
@@ -68,9 +68,31 @@ public class Main : MonoBehaviour
 		PlayerPrefs.SetString("firstStart", "false");
 	}
 
+	public static void GoToMainMenu()
+	{
+		if(Application.isMobilePlatform)
+			Application.LoadLevel(2);
+		else
+			Application.LoadLevel(1);
+	}
+
 	public static bool PlayerAlive
 	{
 		get { return instance.playerAlive; }
 		set { instance.playerAlive = value; }
+	}
+	public static bool GamePaused
+	{
+		get { return Time.timeScale == 0.0f; }
+	}
+	public static void PauseGame()
+	{
+		Time.timeScale = 0.0f;
+		MusicPlayer.Paused = true;
+	}
+	public static void ResumeGame()
+	{
+		Time.timeScale = 1.0f;
+		MusicPlayer.Paused = false;
 	}
 }

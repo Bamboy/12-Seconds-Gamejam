@@ -11,14 +11,14 @@ public class TextDisplay : MonoBehaviour
 
 	void Start()
 	{
-		if( startText != null )
+		if( startText != null && startText != "" )
 			Display( startText, startColor );
 	}
 
 	public void Display( string text, Color color )
 	{
 		if( fg == null || bg == null )
-		{ return; }
+			return;
 
 		fg.text = text;
 		bg.text = text;

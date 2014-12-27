@@ -29,6 +29,7 @@ namespace Excelsion.Pickups
 		//Area progression.
 		void CheckCount()
 		{
+			GameObject tex = null;
 			if( Infinitetile.Area != 3 )
 			{
 				pickupCount++;
@@ -37,8 +38,15 @@ namespace Excelsion.Pickups
 					Debug.Log("Next area! "+ pickupCount);
 					Infinitetile.NextArea ();
 					pickupCount = 0;
+					tex = CreateText( "Next area!", textColor );
 				}
 			}
+			if( tex == null )
+				tex = CreateText( "Speed up!", textColor );
+
+			tex.transform.parent = Main.player;
+			tex.transform.localPosition = new Vector3(-2, 7, 0);
 		}
+
 	}
 }

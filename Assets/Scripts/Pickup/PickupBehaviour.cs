@@ -9,6 +9,8 @@ namespace Excelsion.Pickups
 	{
 		public AudioClip pickupAudioOne;
 		public AudioClip pickupAudioTwo;
+		public Color textColor;
+		private static GameObject textPrefab;
 
 		protected virtual void Start()
 		{
@@ -34,5 +36,23 @@ namespace Excelsion.Pickups
 		}
 
 		protected abstract void OnPickup();
+
+		protected GameObject CreateText( string text, Color color )
+		{
+			if( textPrefab == null )
+				textPrefab = Resources.Load("Prefabs/Effects/Text") as GameObject;
+			
+			TextDisplay texMesh = ((GameObject)Instantiate(textPrefab, transform.position, textPrefab.transform.rotation)).GetComponent<TextDisplay>();
+			if( texMesh != null )
+			{
+				texMesh.Display( text, color );
+				return texMesh.gameObject;
+			}
+			else
+			{
+				Debug.LogWarning("This script was given a bad baseText prefab! (Needs a TextMesh component)", this);
+				return null;
+			}
+		}
 	}
 }

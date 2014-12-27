@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Utils;
+using Utils.Audio;
 
 //By Cristian "vozochris" Vozoca
 namespace Enemies
@@ -42,10 +43,17 @@ namespace Enemies
 			StartCoroutine("Move");
 			dragonActive = true;
 		}
+		public static void Reset()
+		{
+			dragon = null;
+			dragonActive = false;
+			introDone = false;
+		}
 
 
 		protected override void Update()
 		{
+			breathAudio.volume = AudioHelper.GetVolume( 0.9f, SoundType.Effect );
 			if( dragonActive == true )
 			{
 				if( time > 1.3f || introDone ) //Time is not used until the intro has been completed, so we might as well use it for the intro as well.

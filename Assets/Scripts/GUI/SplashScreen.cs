@@ -9,10 +9,7 @@ namespace Excelsion.UI{
 			Invoke("TriggerNextScene", changeTime);
 		}
 		private void TriggerNextScene(){
-			if(Application.isMobilePlatform)
-				Application.LoadLevel(2);
-			else
-				Application.LoadLevel(1);
+			Main.GoToMainMenu();
 		}
 	}
 }

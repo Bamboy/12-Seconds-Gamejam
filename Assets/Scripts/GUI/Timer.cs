@@ -14,22 +14,32 @@ public class Timer : BaseTimer
 	public float warningThreshold = 20.0f;
 	private bool damageBlinking = false;
 
+	private static bool doGUI = true;
+	public static bool Display
+	{
+		set{ doGUI = value; }
+	}
+
 	private void Start()
 	{
 		Init(timeEnd);
 		bg = bg_normal;
+		Display = true;
 
 		StartCoroutine("Blink_TimeLow");
 	}
 	private void OnGUI()
 	{
-		GUI.DrawTexture( new Rect(Screen.width - 150, Screen.height - 105f, 150, 125), (Main.PlayerAlive ? bg : bg_death) );
-		GUIStyle guiStyle = new GUIStyle();
-		guiStyle.alignment = TextAnchor.MiddleCenter;
+		if( doGUI )
+		{
+			GUI.DrawTexture( new Rect(Screen.width - 150, Screen.height - 105f, 150, 125), (Main.PlayerAlive ? bg : bg_death) );
+			GUIStyle guiStyle = new GUIStyle();
+			guiStyle.alignment = TextAnchor.MiddleCenter;
 
-		string secText = VectorExtras.RoundTo( current, 0.01f ).ToString( "f2" );
-		guiStyle.fontSize = 175 / (secText.Length - 1);
-		GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), secText, guiStyle);
+			string secText = VectorExtras.RoundTo( current, 0.01f ).ToString( "f2" );
+			guiStyle.fontSize = 175 / (secText.Length - 1);
+			GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), secText, guiStyle);
+		}
 	}
 	
 
