@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace asfgsadf{
+namespace Excelsion.UI{
 	public class SplashScreen : MonoBehaviour 
 	{
 		public float changeTime = 5.0f;
@@ -9,7 +9,10 @@ namespace asfgsadf{
 			Invoke("TriggerNextScene", changeTime);
 		}
 		private void TriggerNextScene(){
-			Application.LoadLevel(1);
+			if(Application.isMobilePlatform)
+				Application.LoadLevel(2);
+			else
+				Application.LoadLevel(1);
 		}
 	}
 }
