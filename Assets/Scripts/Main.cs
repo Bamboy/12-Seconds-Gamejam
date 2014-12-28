@@ -10,14 +10,16 @@ public class Main : MonoBehaviour
 
 	public static Transform player;
 
-	public static MusicPlayer musicPlayer;
-	public static SoundEffectsPlayer soundEffectsPlayer;
+	//public static MusicPlayer musicPlayer;
+	//public static SoundEffectsPlayer soundEffectsPlayer;
+	public static float dropChance;
 
 	private bool playerAlive = true;
 
 	private void Start()
 	{
 		instance = this;
+		dropChance = 0.25f;
 
 		Time.timeScale = 1.0f;
 		if(Application.loadedLevel == 1 || Application.loadedLevel == 2)
@@ -40,8 +42,8 @@ public class Main : MonoBehaviour
 		}
 		if(Application.loadedLevel == 3){
 			player = GameObject.FindGameObjectWithTag("Player").transform;
-			musicPlayer = gameObject.AddComponent<MusicPlayer>();
-			soundEffectsPlayer = gameObject.AddComponent<SoundEffectsPlayer>();
+			//musicPlayer = gameObject.AddComponent<MusicPlayer>();
+			//soundEffectsPlayer = gameObject.AddComponent<SoundEffectsPlayer>();
 			if(PlayerPrefs.HasKey("hasSet")){
 				AudioHelper.MasterVolume = PlayerPrefs.GetFloat("masterVolume");
 				AudioHelper.MusicVolume = PlayerPrefs.GetFloat("musicVolume");
@@ -62,7 +64,7 @@ public class Main : MonoBehaviour
 			return false;
 		if (Dragon.dragon.Health > 0)
 			return false;
-
+		Debug.Log("You win!");
 		return true;
 	}
 	private void OnDisable(){
@@ -100,11 +102,11 @@ public class Main : MonoBehaviour
 	public static void PauseGame()
 	{
 		Time.timeScale = 0.0f;
-		MusicPlayer.Paused = true;
+		//MusicPlayer.Paused = true;
 	}
 	public static void ResumeGame()
 	{
 		Time.timeScale = 1.0f;
-		MusicPlayer.Paused = false;
+		//MusicPlayer.Paused = false;
 	}
 }

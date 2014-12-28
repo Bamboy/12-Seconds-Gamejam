@@ -73,7 +73,7 @@ namespace Enemies
 			//if (Random.value < 0.3f)// 30%
 			//	SoundEffectsPlayer.PlayRandomKill();
 
-			if(Random.value < 0.25f)
+			if(Random.value < Main.dropChance)
 				DropPowerUp();
 		}
 		
@@ -106,7 +106,7 @@ namespace Enemies
 
 
 		
-		protected void DropPowerUp()
+		protected virtual void DropPowerUp()
 		{
 			GameObject powerup = PickupDropper.instance.GetPickupDrop( this.enemyType );
 

@@ -46,6 +46,7 @@ public class Infinitetile : MonoBehaviour
 		{
 			area++;
 			subArea = 0;
+			Main.dropChance += 0.15f;
 		}
 	}
 	private void OnApplicationQuit(){

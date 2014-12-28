@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
 	private ParticleSystem referenceObject;
 	public Color powerup1;
 	public Color powerup2;
+	private int projType;
 
 	void Start()
 	{
@@ -21,7 +22,8 @@ public class Projectile : MonoBehaviour
 		referenceObject = GetComponentInChildren<ParticleSystem>();
 		//projectileOriginal = referenceObject.startColor;
 
-		switch( Shooting.shootMode )
+		projType = Shooting.shootMode;
+		switch( projType )
 		{
 		case 1:
 			renderer.material.color = powerup1;
@@ -50,7 +52,7 @@ public class Projectile : MonoBehaviour
 		BaseEnemy enemy = col.GetComponent< BaseEnemy >();
 		if( enemy != null )
 		{
-			enemy.OnTakeDamage( 1 );
+			enemy.OnTakeDamage( GetDamage() );
 		}
 
 		if( !(enemy is Wave) ) //Ingore waves.
@@ -64,6 +66,19 @@ public class Projectile : MonoBehaviour
 			//} else {
 			//	Destroy(gameObject);
 			//}
+		}
+	}
+
+	int GetDamage()
+	{
+		switch (projType)
+		{
+		case 1:
+			return 3;
+		case 2:
+			return 2;
+		default:
+			return 1;
 		}
 	}
 

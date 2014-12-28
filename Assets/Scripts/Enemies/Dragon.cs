@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Utils;
 using Utils.Audio;
+using Excelsion.UI;
 
 //By Cristian "vozochris" Vozoca
 namespace Enemies
@@ -27,7 +28,7 @@ namespace Enemies
 		private bool doneBreathingFire = true;
 
 		public int Health
-		{ get{ return health; } }
+		{ get{ return health; }set{ health = value; }}
 
 		protected override void Awake()
 		{
@@ -166,6 +167,7 @@ namespace Enemies
 				if (health <= 0)
 				{
 					BaseTimer.instance.TimeModifier += 120.0f;
+					ButtonFunctions.instance.ForceWinDisplay();
 					Kill();
 				}
 				else
@@ -178,7 +180,7 @@ namespace Enemies
 
 
 
-
+		protected override void DropPowerUp() { return; }
 
 
 

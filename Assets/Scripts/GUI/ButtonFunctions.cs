@@ -9,6 +9,7 @@ namespace Excelsion.UI
 {
 	public class ButtonFunctions : MonoBehaviour 
 	{
+		public static ButtonFunctions instance;
 		private int activeMenu = -1;
 		public GameObject mainGroup;
 		public GameObject optionsGroup;
@@ -21,9 +22,11 @@ namespace Excelsion.UI
 		public GameObject pauseMenu;
 		public GameObject winMenu;
 		public GameObject loseMenu;
+		private bool forcedWin = false;
 
 		private void Awake()
 		{
+			instance = this;
 			if ( SceneIsMenu )
 			{
 				mainGroup.SetActive   ( true );
@@ -34,6 +37,7 @@ namespace Excelsion.UI
 		}
 		void OnLevelLoaded( int lvl )
 		{
+			instance = this;
 			if( lvl != 1 && lvl != 2 )
 				activeMenu = -1; //-1 is a null menu.
 			else
@@ -49,43 +53,19 @@ namespace Excelsion.UI
 				return ( SceneIsMenu || winMenu.activeInHierarchy || loseMenu.activeInHierarchy || pauseMenu.activeInHierarchy );
 			}
 		}
-
+		public void ForceWinDisplay()
+		{
+			forcedWin = true;
+			pauseButton.SetActive(false);
+			loseMenu.SetActive(false);
+			pauseMenu.SetActive(false);
+			winMenu.SetActive(true);
+			Main.PauseGame();
+		}
 		private void Update()
 		{
 			if( !SceneIsMenu )
 			{
-				if(Main.OnWin() && _continue == false && _paused == false) //We just won the game. Display win screen
-				{
-					winMenu.SetActive(true);
-					Main.PauseGame ();
-				} 
-				else if(Main.OnWin() && _continue == true) //User chose to continue playing after winning
-				{
-					winMenu.SetActive(false);
-					_paused = false;
-					Main.ResumeGame ();
-				}
-
-				if(!Main.PlayerAlive) //Player died.
-				{
-					loseMenu.SetActive(true);
-					Main.PauseGame ();
-				} 
-				else //Player has not died.
-				{
-					loseMenu.SetActive(false);
-					if( _paused == true ) //Is the game paused?
-					{
-						pauseMenu.SetActive( true );
-						Main.PauseGame ();
-					}
-					else
-					{
-						pauseMenu.SetActive( false );
-						Main.ResumeGame ();
-					}
-				}
-
 				if( MenuIsOpen )
 				{
 					pauseButton.SetActive( false );
@@ -96,6 +76,45 @@ namespace Excelsion.UI
 					pauseButton.SetActive( true );
 					Timer.Display = true;
 				}
+
+				if( forcedWin ) //We're forcing ourselves to win. Ignore everything else.
+					return;
+
+				if(!Main.PlayerAlive) //Player died.
+				{
+					loseMenu.SetActive(true);
+					Main.PauseGame ();
+				} 
+				else //Player has not died.
+				{
+					if(Main.OnWin() && _continue == false) //We just won the game. Display win screen
+					{
+						winMenu.SetActive(true);
+						Main.PauseGame ();
+					} 
+					else if(Main.OnWin() && _continue == true) //User chose to continue playing after winning
+					{
+						winMenu.SetActive(false);
+						_paused = false;
+						Main.ResumeGame ();
+					}
+					else
+					{
+						loseMenu.SetActive(false);
+						if( _paused == true ) //Is the game paused?
+						{
+							pauseMenu.SetActive( true );
+							Main.PauseGame ();
+						}
+						else
+						{
+							pauseMenu.SetActive( false );
+							Main.ResumeGame ();
+						}
+					}
+				}
+
+
 
 			}
 		}
