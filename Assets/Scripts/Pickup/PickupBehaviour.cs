@@ -26,10 +26,11 @@ namespace Excelsion.Pickups
 		{
 			if( col.tag == "Player" )
 			{
-				if(Random.Range(0f, 1f) < 0.5f)
-					AudioHelper.PlayClipAtPoint(pickupAudioOne, Vector3.zero, AudioHelper.EffectVolume);
+				if(VectorExtras.SplitChance())
+					AudioHelper.PlayClipAtPoint(pickupAudioOne, transform.position, AudioHelper.EffectVolume);
 				else
-					AudioHelper.PlayClipAtPoint(pickupAudioTwo, Vector3.zero, AudioHelper.EffectVolume);
+					AudioHelper.PlayClipAtPoint(pickupAudioTwo, transform.position, AudioHelper.EffectVolume);
+
 				OnPickup();
 				Destroy( this.gameObject );
 			}

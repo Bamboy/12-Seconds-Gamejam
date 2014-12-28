@@ -50,7 +50,7 @@ public class Shooting : CharacterInput
 			Delay = 0.2f;
 			break;
 		default:
-			Delay = 0.5f;
+			Delay = 0.425f;
 			shootMode = 0;
 			break;
 		}
@@ -100,7 +100,7 @@ public class Shooting : CharacterInput
 	}
 	void Shoot()
 	{
-		Utils.Audio.AudioHelper.PlayClipAtPoint(shootAudio, Vector3.zero, Utils.Audio.AudioHelper.EffectVolume);
+		Utils.Audio.AudioHelper.PlayClipAtPoint(shootAudio, transform.position, Utils.Audio.AudioHelper.EffectVolume);
 		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit))

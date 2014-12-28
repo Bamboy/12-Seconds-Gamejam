@@ -19,6 +19,7 @@ namespace Utils.Audio
 		public void Play(string id)
 		{
 			playing = id;
+			audioSources[playing].volume = volume;
 			audioSources[playing].Play();
 		}
 
@@ -45,6 +46,7 @@ namespace Utils.Audio
 				return;
 			}
 			audioSources[id] = AudioHelper.CreateAudioSource(transform, clip, volume);
+			audioSources[id].playOnAwake = false;
 		}
 
 		/// <summary>
