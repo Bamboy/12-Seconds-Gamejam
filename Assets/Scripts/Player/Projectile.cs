@@ -1,24 +1,40 @@
 using UnityEngine;
 using Enemies;
-using Utils;
+using Utils.Audio;
 
 public class Projectile : MonoBehaviour 
 {
 	public Vector3 direction;
 	public float speed = 3.0f;
-	public AudioSource onHit;
-	public AudioClip[] hitFiles;
-	public GameObject audioSource;
+
+	public AudioClip impact1;
+	public AudioClip impact2;
 	private Vector3 newDirection;
-	private Color projectileOriginal;
+	//private Color projectileOriginal;
 	private ParticleSystem referenceObject;
+	public Color powerup1;
+	public Color powerup2;
 
 	void Start()
 	{
 		rigidbody.AddForce( direction * speed, ForceMode.Impulse );
 		referenceObject = GetComponentInChildren<ParticleSystem>();
-		projectileOriginal = referenceObject.startColor;
-		if(Infinitetile.Area == 0){
+		//projectileOriginal = referenceObject.startColor;
+
+		switch( Shooting.shootMode )
+		{
+		case 1:
+			renderer.material.color = powerup1;
+			referenceObject.startColor = powerup1;
+			break;
+		case 2:
+			renderer.material.color = powerup2;
+			referenceObject.startColor = powerup2;
+			break;
+		default:
+			break;
+		}
+		/*if(Infinitetile.Area == 0){
 			referenceObject.startColor = projectileOriginal;
 		} else if(Infinitetile.Area == 1){
 			referenceObject.startColor = Color.red;
@@ -26,7 +42,7 @@ public class Projectile : MonoBehaviour
 			referenceObject.startColor = projectileOriginal;
 		} else if(Infinitetile.Area == 3){
 			referenceObject.startColor = Color.green;
-		}
+		}*/
 	}
 
 	void OnTriggerEnter(Collider col)
@@ -39,14 +55,33 @@ public class Projectile : MonoBehaviour
 
 		if( !(enemy is Wave) ) //Ingore waves.
 		{
-			if(Infinitetile.Area == 3 || Infinitetile.Area == 1)
-			{
-				newDirection = new Vector3(-1f, 0f, Random.Range(-1f, 1f));
-				rigidbody.AddForce(newDirection * speed, ForceMode.Impulse);
-				Destroy(gameObject, 5f);
-			} else {
-				Destroy(gameObject);
-			}
+			PlayImpact();
+			//if(Infinitetile.Area == 3 || Infinitetile.Area == 1)
+			//{
+			newDirection = new Vector3(-1f, 0f, Random.Range(-1f, 1f));
+			rigidbody.AddForce(newDirection * speed, ForceMode.Impulse);
+			Destroy(gameObject, 5f);
+			//} else {
+			//	Destroy(gameObject);
+			//}
 		}
 	}
+
+
+	void PlayImpact()
+	{
+		if( VectorExtras.SplitChance() )
+		{
+			AudioHelper.PlayClipAtPoint( impact1, transform.position, 0.8f, SoundType.Effect );
+		}
+		else
+		{
+			AudioHelper.PlayClipAtPoint( impact2, transform.position, 0.8f, SoundType.Effect );
+		}
+	}
+
+
+
+
+
 }

@@ -13,6 +13,7 @@ public class Timer : BaseTimer
 	public float blinkLength = 0.25f;
 	public float warningThreshold = 20.0f;
 	private bool damageBlinking = false;
+	public GUIStyle font;
 
 	private static bool doGUI = true;
 	public static bool Display
@@ -33,12 +34,12 @@ public class Timer : BaseTimer
 		if( doGUI )
 		{
 			GUI.DrawTexture( new Rect(Screen.width - 150, Screen.height - 105f, 150, 125), (Main.PlayerAlive ? bg : bg_death) );
-			GUIStyle guiStyle = new GUIStyle();
-			guiStyle.alignment = TextAnchor.MiddleCenter;
+			//GUIStyle guiStyle = new GUIStyle();
+			//guiStyle.alignment = TextAnchor.MiddleCenter;
 
 			string secText = VectorExtras.RoundTo( current, 0.01f ).ToString( "f2" );
-			guiStyle.fontSize = 175 / (secText.Length - 1);
-			GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), secText, guiStyle);
+			font.fontSize = 175 / (secText.Length - 1);
+			GUI.Label(new Rect(Screen.width - 100f, Screen.height - 75f, 50, 50), secText, font);
 		}
 	}
 	

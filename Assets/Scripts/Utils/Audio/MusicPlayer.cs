@@ -16,8 +16,6 @@ namespace Utils.Audio
 			instance = this;
 			baseInstance = this as BaseAudioPlayer;
 
-			volume = AudioHelper.MusicVolume;
-
 			Add("1", "Music/");
 			Add("2", "Music/");
 			Add("3", "Music/");
@@ -27,6 +25,7 @@ namespace Utils.Audio
 
 		private void Update()
 		{
+			volume = AudioHelper.MusicVolume;
 			if (!Paused)
 			{
 				if (loopedSongs != null)
@@ -42,7 +41,7 @@ namespace Utils.Audio
 
 		private void PlayLooped(params string[] ids)
 		{
-			loopPlayIndex = 0;
+			loopPlayIndex = Random.Range(0,3);
 			loopedSongs = ids;
 			Play(loopedSongs[0]);
 		}

@@ -40,7 +40,7 @@ public class Main : MonoBehaviour
 		if(Application.loadedLevel == 3){
 			player = GameObject.FindGameObjectWithTag("Player").transform;
 			musicPlayer = gameObject.AddComponent<MusicPlayer>();
-			soundEffectsPlayer = gameObject.AddComponent<SoundEffectsPlayer>();
+			//soundEffectsPlayer = gameObject.AddComponent<SoundEffectsPlayer>();
 		}
 	}
 

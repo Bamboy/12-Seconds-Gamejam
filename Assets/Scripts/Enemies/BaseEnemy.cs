@@ -70,8 +70,8 @@ namespace Enemies
 			CreateSplatter();
 			CreateText( "+"+VectorExtras.RoundTo(timeBonus, 0.1f)+" Sec", Color.green );
 
-			if (Random.value < 0.3f)// 30%
-				SoundEffectsPlayer.PlayRandomKill();
+			//if (Random.value < 0.3f)// 30%
+			//	SoundEffectsPlayer.PlayRandomKill();
 
 			if(Random.value < 0.25f)
 				DropPowerUp();
