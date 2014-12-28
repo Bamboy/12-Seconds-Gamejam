@@ -20,7 +20,8 @@ public class Main : MonoBehaviour
 		instance = this;
 
 		Time.timeScale = 1.0f;
-		if(Application.loadedLevel == 1 || Application.loadedLevel == 2){
+		if(Application.loadedLevel == 1 || Application.loadedLevel == 2)
+		{
 			if(PlayerPrefs.HasKey("hasSet")){
 				AudioHelper.MasterVolume = PlayerPrefs.GetFloat("masterVolume");
 				AudioHelper.MusicVolume = PlayerPrefs.GetFloat("musicVolume");
@@ -36,7 +37,7 @@ public class Main : MonoBehaviour
 			UI.SliderFunctions.instance.volumeSliders[2].value = AudioHelper.MusicVolume;
 			UI.SliderFunctions.instance.volumeSliders[1].value = AudioHelper.EffectVolume;
 			UI.SliderFunctions.instance.volumeSliders[3].value = AudioHelper.VoiceVolume;
-			}
+		}
 		if(Application.loadedLevel == 3){
 			player = GameObject.FindGameObjectWithTag("Player").transform;
 			musicPlayer = gameObject.AddComponent<MusicPlayer>();
