@@ -15,8 +15,8 @@ namespace Enemies
 			base.Awake ();
 			enemyType = "rock";
 			health = 4;
-			timePenalty = 10.0f;
-			timeBonus = 2.0f;
+			timePenalty = 7.5f;
+			timeBonus = 2.5f;
 			movementSpeed = Random.Range( speedRange.x, speedRange.y );
 		}
 
@@ -33,7 +33,5 @@ namespace Enemies
 				hasDeducted = true;
 			}
 		}
-
-		//protected
 	}
 }

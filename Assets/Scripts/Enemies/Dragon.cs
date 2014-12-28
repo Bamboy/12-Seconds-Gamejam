@@ -34,7 +34,7 @@ namespace Enemies
 			base.Awake();
 			breathAudio = GetComponent<AudioSource>();
 			dragon = this;
-			health = 500;
+			health = 250;
 			timePenalty = 0.0f; //The dragon will never come in contact with the player.
 		}
 		public void Init()
@@ -53,7 +53,11 @@ namespace Enemies
 
 		protected override void Update()
 		{
-			breathAudio.volume = AudioHelper.GetVolume( 0.9f, SoundType.Effect );
+			if( Main.GamePaused )
+				breathAudio.volume = 0.0f;
+			else
+				breathAudio.volume = AudioHelper.GetVolume( 0.9f, SoundType.Effect );
+
 			if( dragonActive == true )
 			{
 				if( time > 1.3f || introDone ) //Time is not used until the intro has been completed, so we might as well use it for the intro as well.
@@ -160,7 +164,14 @@ namespace Enemies
 			{
 				health -= value;
 				if (health <= 0)
+				{
+					BaseTimer.instance.TimeModifier += 120.0f;
 					Kill();
+				}
+				else
+				{
+					BaseTimer.instance.TimeModifier += 0.5f;
+				}
 			}
 		}
 

@@ -42,10 +42,15 @@ namespace Excelsion.Pickups
 				}
 			}
 			if( tex == null )
-				tex = CreateText( "Speed up!", textColor );
+			{
+				if( Infinitetile.Area == 3 )
+					tex = CreateText( "Speed up!", textColor );
+				else
+					tex = CreateText( "Speed up! "+ pickupCount +"/"+ requiredForNextArea[ Infinitetile.Area ], textColor );
+			}
 
 			tex.transform.parent = Main.player;
-			tex.transform.localPosition = new Vector3(-2, 7, 0);
+			tex.transform.localPosition = new Vector3(-5, 6, 0);
 		}
 
 	}

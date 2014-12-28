@@ -3,6 +3,7 @@ using System.Collections;
 using Utils.Audio;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Excelsion.Pickups;
 
 namespace Excelsion.UI
 {
@@ -105,9 +106,15 @@ namespace Excelsion.UI
 		}
 		public void ReloadCurrentLevel()
 		{
+			SpeedPickup.pickupCount = 0;
+			Application.LoadLevel(Application.loadedLevel);
+		}
+		public void Restart(){
+			SpeedPickup.pickupCount = 0;
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		public void GoToNewLevel(int LevelID){
+			SpeedPickup.pickupCount = 0;
 			Application.LoadLevel(LevelID);
 		}
 
@@ -128,9 +135,6 @@ namespace Excelsion.UI
 			Main.ResumeGame();
 			_paused = false;
 			pauseMenu.SetActive(false);
-		}
-		public void Restart(){
-			Application.LoadLevel(Application.loadedLevel);
 		}
 		public void Quit(){
 			Main.GoToMainMenu();
