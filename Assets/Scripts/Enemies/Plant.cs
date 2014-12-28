@@ -6,14 +6,14 @@ namespace Enemies
 	public class Plant : BaseEnemy
 	{
 		public float lane;
-		public float fireTimePenalty = 1.0f;
+		public float fireTimePenalty = 0.65f;
 		protected override void Awake ()
 		{
 			base.Awake ();
 			enemyType = "plant";
-			health = 4;
-			timePenalty = 7.0f;
-			timeBonus = 5.0f;
+			health = 3;
+			timePenalty = 5.0f;
+			timeBonus = Random.Range(5.10f,6.9f);
 		}
 		
 		protected override void Update ()

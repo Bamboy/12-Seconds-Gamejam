@@ -3,6 +3,7 @@ using System.Collections;
 using Utils.Audio;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Excelsion.Pickups;
 
 namespace Excelsion.UI
 {
@@ -11,22 +12,25 @@ namespace Excelsion.UI
 		private int activeMenu = -1;
 		public GameObject mainGroup;
 		public GameObject optionsGroup;
-		public GameObject hiScoreGroup;
+		//public GameObject hiScoreGroup;
 		public GameObject creditsGroup;
 
+		private bool _paused;
 		private bool _continue;
+		public GameObject pauseButton;
 		public GameObject pauseMenu;
 		public GameObject winMenu;
 		public GameObject loseMenu;
 
 		private void Awake()
 		{
-			//if (Application.loadedLevel == 1 || Application.loadedLevel == 2)
-			//	enabled = false;
-			mainGroup.SetActive   ( true );
-			optionsGroup.SetActive(false);
-			hiScoreGroup.SetActive(false);
-			creditsGroup.SetActive(false);
+			if ( SceneIsMenu )
+			{
+				mainGroup.SetActive   ( true );
+				optionsGroup.SetActive(false);
+				//hiScoreGroup.SetActive(false);
+				creditsGroup.SetActive(false);
+			}
 		}
 		void OnLevelLoaded( int lvl )
 		{
@@ -39,25 +43,60 @@ namespace Excelsion.UI
 		{
 			get{ return ( Application.loadedLevel != 3 ); }
 		}
+		bool MenuIsOpen
+		{
+			get{
+				return ( SceneIsMenu || winMenu.activeInHierarchy || loseMenu.activeInHierarchy || pauseMenu.activeInHierarchy );
+			}
+		}
 
 		private void Update()
 		{
 			if( !SceneIsMenu )
 			{
-				if(Main.OnWin() && !_continue){
+				if(Main.OnWin() && _continue == false && _paused == false) //We just won the game. Display win screen
+				{
 					winMenu.SetActive(true);
-					Time.timeScale = 0f;
-				} else if(Main.OnWin() && _continue){
-					Time.timeScale = 1f;
+					Main.PauseGame ();
+				} 
+				else if(Main.OnWin() && _continue == true) //User chose to continue playing after winning
+				{
 					winMenu.SetActive(false);
+					_paused = false;
+					Main.ResumeGame ();
 				}
-				if(!Main.PlayerAlive){
+
+				if(!Main.PlayerAlive) //Player died.
+				{
 					loseMenu.SetActive(true);
-					Time.timeScale = 0f;
-				} else {
+					Main.PauseGame ();
+				} 
+				else //Player has not died.
+				{
 					loseMenu.SetActive(false);
-					Time.timeScale = 1f;
+					if( _paused == true ) //Is the game paused?
+					{
+						pauseMenu.SetActive( true );
+						Main.PauseGame ();
+					}
+					else
+					{
+						pauseMenu.SetActive( false );
+						Main.ResumeGame ();
+					}
 				}
+
+				if( MenuIsOpen )
+				{
+					pauseButton.SetActive( false );
+					Timer.Display = false;
+				}
+				else
+				{
+					pauseButton.SetActive( true );
+					Timer.Display = true;
+				}
+
 			}
 		}
 
@@ -65,33 +104,40 @@ namespace Excelsion.UI
 		public void OnButton_Exit(){
 			Application.Quit();
 		}
-		public void ReloadCurrentLevel(){
+		public void ReloadCurrentLevel()
+		{
+			SpeedPickup.pickupCount = 0;
+			Application.LoadLevel(Application.loadedLevel);
+		}
+		public void Restart(){
+			SpeedPickup.pickupCount = 0;
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		public void GoToNewLevel(int LevelID){
+			SpeedPickup.pickupCount = 0;
 			Application.LoadLevel(LevelID);
 		}
 
 		public void OnButton_OpenWebsite(string url){
 			Application.OpenURL(url);
 		}
-		public void PauseButton(){
+		public void PauseButton()
+		{
+			Main.PauseGame();
+			_paused = true;
 			pauseMenu.SetActive(true);
-			MusicPlayer.Paused = true;
-			Time.timeScale = 0.0f;
 		}
-		public void Resume(){
+		public void Resume()
+		{
 			if(Main.OnWin())
 				_continue = true;
-			pauseMenu.SetActive(true);
-			MusicPlayer.Paused = true;
-			Time.timeScale = 1.0f;
-		}
-		public void Restart(){
-			Application.LoadLevel(Application.loadedLevel);
+			
+			Main.ResumeGame();
+			_paused = false;
+			pauseMenu.SetActive(false);
 		}
 		public void Quit(){
-			Application.LoadLevel(1);
+			Main.GoToMainMenu();
 		}
 		#endregion
 
@@ -104,31 +150,31 @@ namespace Excelsion.UI
 			case 0: //Just our basic menu
 				mainGroup.SetActive   ( true );
 				optionsGroup.SetActive(false);
-				hiScoreGroup.SetActive(false);
+				//hiScoreGroup.SetActive(false);
 				creditsGroup.SetActive(false);
 				break;
 			case 1: //Options menu
 				mainGroup.SetActive   (false);
 				optionsGroup.SetActive( true );
-				hiScoreGroup.SetActive(false);
+				//hiScoreGroup.SetActive(false);
 				creditsGroup.SetActive(false);
 				break;
-			case 2: //Highscore menu
+			/*case 2: //Highscore menu
 				mainGroup.SetActive   (false);
 				optionsGroup.SetActive(false);
 				hiScoreGroup.SetActive( true );
 				creditsGroup.SetActive(false);
-				break;
+				break; */
 			case 3: //Credits menu
 				mainGroup.SetActive   (false);
 				optionsGroup.SetActive(false);
-				hiScoreGroup.SetActive(false);
+				//hiScoreGroup.SetActive(false);
 				creditsGroup.SetActive( true );
 				break;
 			default:
 				mainGroup.SetActive   (false);
 				optionsGroup.SetActive(false);
-				hiScoreGroup.SetActive(false);
+				//hiScoreGroup.SetActive(false);
 				creditsGroup.SetActive(false);
 				Debug.LogError("MenuSwitching should only be done on scenes 1 or 2! Did you mess up the scene order in build settings?", this);
 				return;
@@ -143,13 +189,14 @@ namespace Excelsion.UI
 			else
 				SwitchToMenu( 1 );
 		}
+		/*
 		public void OnButton_HiScore()
 		{
 			if( activeMenu == 2 )
 				SwitchToMenu( 0 );
 			else
 				SwitchToMenu( 2 );
-		}
+		} */
 		public void OnButton_Credits()
 		{
 			if( activeMenu == 3 )
