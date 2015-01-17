@@ -39,9 +39,12 @@ public class Main : MonoBehaviour
 			UI.SliderFunctions.instance.volumeSliders[2].value = AudioHelper.MusicVolume;
 			UI.SliderFunctions.instance.volumeSliders[1].value = AudioHelper.EffectVolume;
 			UI.SliderFunctions.instance.volumeSliders[3].value = AudioHelper.VoiceVolume;
+			if(Application.loadedLevel == 2)
+				Excelsion.Ads.MainAds.bannerView.Show();
 		}
 		if(Application.loadedLevel == 3){
 			player = GameObject.FindGameObjectWithTag("Player").transform;
+			Excelsion.Ads.MainAds.bannerView.Hide();
 			//musicPlayer = gameObject.AddComponent<MusicPlayer>();
 			//soundEffectsPlayer = gameObject.AddComponent<SoundEffectsPlayer>();
 			if(PlayerPrefs.HasKey("hasSet")){

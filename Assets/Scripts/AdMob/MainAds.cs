@@ -5,7 +5,7 @@ using GoogleMobileAds.Api;
 
 namespace Excelsion.Ads{
 	public class MainAds : MonoBehaviour {
-		private BannerView bannerView;
+		public static BannerView bannerView;
 		private InterstitialAd interstitial;
 
 		private void Awake(){
