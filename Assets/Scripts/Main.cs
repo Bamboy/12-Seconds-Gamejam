@@ -2,6 +2,7 @@
 using Utils.Audio;
 using UnityEngine.UI;
 using Enemies;
+using Excelsion.Pickups;
 
 //By Cristian "vozochris" Vozoca and Nick Evans
 public class Main : MonoBehaviour
@@ -85,8 +86,17 @@ public class Main : MonoBehaviour
 		PlayerPrefs.SetString("hasSet", "true");
 	}
 
+	public static void ResetStatics()
+	{
+		Dragon.Reset();
+		SpeedPickup.pickupCount = 0;
+		//player = null;
+		//instance = null;
+	}
+
 	public static void GoToMainMenu()
 	{
+		ResetStatics();
 		if(Application.isMobilePlatform)
 			Application.LoadLevel(2);
 		else

@@ -4,6 +4,7 @@ using Utils.Audio;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Excelsion.Pickups;
+using Enemies;
 
 namespace Excelsion.UI
 {
@@ -123,18 +124,15 @@ namespace Excelsion.UI
 		public void OnButton_Exit(){
 			Application.Quit();
 		}
-		public void ReloadCurrentLevel()
+		public void Restart()
 		{
-			SpeedPickup.pickupCount = 0;
+			Main.ResetStatics();
 			Application.LoadLevel(Application.loadedLevel);
 		}
-		public void Restart(){
-			SpeedPickup.pickupCount = 0;
-			Application.LoadLevel(Application.loadedLevel);
-		}
-		public void GoToNewLevel(int LevelID){
-			SpeedPickup.pickupCount = 0;
-			Application.LoadLevel(LevelID);
+		public void GoToNewLevel( int lvl )
+		{
+			Main.ResetStatics();
+			Application.LoadLevel( lvl );
 		}
 
 		public void OnButton_OpenWebsite(string url){

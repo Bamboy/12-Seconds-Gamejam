@@ -26,6 +26,8 @@ namespace Enemies
 
 		//Behaviour bools
 		private bool doneBreathingFire = true;
+		private bool doneMoving
+		{ get{ return time >= 1.0f; } }
 
 		public int Health
 		{ get{ return health; }set{ health = value; }}
@@ -40,7 +42,7 @@ namespace Enemies
 		}
 		public void Init()
 		{
-			Debug.Log ("Dragon Started!");
+			//Debug.Log ("Dragon Started!");
 			StartCoroutine("Move");
 			dragonActive = true;
 		}
@@ -75,11 +77,13 @@ namespace Enemies
 				}
 				else // Do the intro
 				{
+					LevelGeneration.doRocks = false;
 					time += ( 0.45f * Time.deltaTime );
 					Vector3 t = transform.position;
 					t.x = Mathfx.Sinerp( Main.player.position.x + introPos.x, Main.player.position.x + introPos.y, time );
 					transform.position = t;
 				}
+				//Debug.Log( time );
 			}
 
 			movementSpeed = -PlyMovement.Speed;
@@ -89,25 +93,37 @@ namespace Enemies
 		void DoAI()
 		{
 			//Changing lanes
-			time += ( 2.06f * Time.deltaTime );
+			if( doneBreathingFire )
+				time = Mathf.Clamp01(time + ( 2.06f * Time.deltaTime ));
+			else
+				DoFireDamage(); //Do fire damage if we are breathing fire.
+
 			Vector3 t = transform.position;
 			t.z = Mathfx.Sinerp( lastLane * PlyMovement.laneWidth, lane * PlyMovement.laneWidth, time );
 			//t.z = Mathfx.CustomBerp( lastLane * PlyMovement.laneWidth, lane * PlyMovement.laneWidth, time, 1.2f, 3.45f, 6.16f, 0.8f, 2.2f );
 			transform.position = t;
 
-			DoFireDamage(); //Do fire damage if we are breathing fire.
+			 
 		}
 		//======== Movement ==============
 		public IEnumerator Move()
 		{
+			//WAIT until we are done breathing fire before moving.
 			while( doneBreathingFire == false || introDone == false )
-				yield return null; //Wait until we are done breathing fire before moving.
+				yield return null; 
 
 			if(VectorExtras.SplitChance() == true) //Move randomly to the left or right
 				MoveRight ();
 			else
 				MoveLeft ();
 
+			//WAIT until we are finished changing lanes before starting our cooldown!
+			while(doneMoving == false)
+				yield return null;
+
+			//Debug.Log( "Movecooldown start!" );
+
+			//WAIT until we are finished with our movement cooldown
 			yield return new WaitForSeconds( Random.Range(moveCooldownRange.x, moveCooldownRange.y) );
 
 			StartCoroutine("Move"); //Loop this yield.
@@ -147,14 +163,19 @@ namespace Enemies
 		{
 			yield return new WaitForSeconds( Random.Range(fireCooldownRange.x, fireCooldownRange.y) );
 
+			//Wait until we're done changing lanes.
+			while(doneMoving == false)
+				yield return null;
+
 			doneBreathingFire = false;
-			breathAudio.Play();
 			anim.SetBool ("breatheFire", true);
+			breathAudio.Play();
 			yield return new WaitForSeconds( fireBreatheTime + 0.25f ); //0.25f is the intro animation time.
 			anim.SetBool ("breatheFire", false);
+			breathAudio.Stop();
 			yield return new WaitForSeconds( 0.5f ); //0.5f is the outro animation time.
 			doneBreathingFire = true;
-			breathAudio.Stop();
+
 
 			StartCoroutine("BreatheFire"); //Loop this yield.
 		}

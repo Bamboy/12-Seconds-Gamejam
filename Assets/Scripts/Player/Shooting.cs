@@ -169,8 +169,8 @@ public class Shooting : CharacterInput
 		{
 			//hit.collider.renderer.material.color = Color.red;
 		}
-		else
-			Debug.Log ("Nothing was hit!", this);
+		//else
+			//Debug.Log ("Nothing was hit!", this);
 
 		LookAtTarget( hit.point );
 	}
